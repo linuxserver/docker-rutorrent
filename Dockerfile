@@ -6,7 +6,7 @@ ENV APTLIST="byobu php5-geoip rtorrent unzip unrar mediainfo ffmpeg git-core"
 
 # install packages
 RUN add-apt-repository ppa:byobu/ppa && \
-apt-add-repository ppa:jon-severinsson/ffmpeg && \
+add-apt-repository ppa:kirillshkrogalev/ffmpeg-next && \
 apt-get update -q && \
 apt-get install $APTLIST -qy && \
 
