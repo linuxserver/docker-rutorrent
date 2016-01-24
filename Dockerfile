@@ -2,10 +2,12 @@ FROM linuxserver/baseimage.nginx
 
 MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
-ENV APTLIST="git-core"
+ENV APTLIST="byobu php5-geoip rtorrent unzip unrar mediainfo ffmpeg git-core"
 
 # install packages
-RUN apt-get update -q && \
+RUN add-apt-repository ppa:byobu/ppa && \
+apt-add-repository ppa:jon-severinsson/ffmpeg && \
+apt-get update -q && \
 apt-get install $APTLIST -qy && \
 
 # cleanup
