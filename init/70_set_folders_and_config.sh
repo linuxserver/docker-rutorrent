@@ -3,7 +3,7 @@ mkdir -p /config/rtorrent /config/log/rtorrent
 if [ ! -f "/config/rtorrent/config.php" ]; then
 cp /defaults/config.php /config/rtorrent/config.php
 fi
-cp /config/rtorrent/config.php  /config/www/conf/config.php
+cp /config/rtorrent/config.php  /config/www/webui/conf/config.php
 
 if [ ! -f "/config/rtorrent/rtorrent.rc" ]; then
 cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
