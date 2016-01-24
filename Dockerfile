@@ -2,7 +2,7 @@ FROM linuxserver/baseimage.nginx
 
 MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
-ENV APTLIST=dtach ffmpeg git-core mediainfo nano php5-geoip \
+ENV APTLIST="dtach ffmpeg git-core mediainfo nano php5-geoip \
 rtorrent unrar unzip wget"
 
 # install packages
