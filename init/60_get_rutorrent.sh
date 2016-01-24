@@ -6,6 +6,6 @@ chown -R abc:abc /config/www)
 # opt out for autoupdates
 [ "$ADVANCED_DISABLEUPDATES" ] && exit 0
 
-cd /config/www
+cd /config/www || exit
 git pull
 chown -R abc:abc /config/www
