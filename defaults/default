@@ -1,17 +1,7 @@
 server {
      listen 80;
-     return 301 https://$host$request_uri;
-}
-server {
-	listen 443 ssl;
 	root /config/www/webui;
         index index.html index.htm index.php;
-	
-
-	ssl_certificate /config/keys/cert.crt;
-	ssl_certificate_key /config/keys/cert.key;
-	
-	
 	client_max_body_size 0;
         server_name _;
 
