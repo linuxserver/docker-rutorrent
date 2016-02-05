@@ -5,7 +5,7 @@ featuring auto-update on startup, easy user mapping and community support. Be su
 [forums](https://forum.linuxserver.io/index.php) or for real-time support our 
 [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`.
 
-# linuxserver/ruttorrent
+# linuxserver/rutorrent
 
 Popular rtorrent client with a webui for ease of use. [Rutorrent](https://github.com/Novik/ruTorrent)
 
