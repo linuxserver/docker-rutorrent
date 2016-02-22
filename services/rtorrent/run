@@ -8,10 +8,10 @@ fi
 dtach -n /detach_sess/.dtach /sbin/setuser abc /usr/bin/rtorrent -n -o import=/config/rtorrent/rtorrent.rc
 
 
+sleep 1s
+
+rtorrent_pid=$(cat /config/rtorrent/rtorrent_sess/rtorrent.lock | cut -d '+' -f 2)
 
 
-$pidof=$(cat /config/rtorrent_sess/rtorrent.lock | cut -d '+' -f 2)
 
-
-
-tail -n 1 -F /config/log/nginx/access.log --pid="$pidof"
+tail -n 1 -F /config/log/nginx/access.log --pid="$rtorrent_pid"
