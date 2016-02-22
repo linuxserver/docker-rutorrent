@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -f "/detach_sess/.dtach" ]; then
+rm -f /detach_sess/.dtach || true
+sleep 1s
+fi
+
+dtach -n /detach_sess/.dtach /sbin/setuser abc /usr/bin/rtorrent -n -o import=/config/rtorrent/rtorrent.rc
+
+
+
+
+$pidof=$(cat /config/rtorrent_sess/rtorrent.lock | cut -d '+' -f 2)
+
+
+
+tail -n 1 -F /config/log/nginx/access.log --pid="$pidof"
