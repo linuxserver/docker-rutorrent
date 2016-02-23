@@ -5,6 +5,8 @@ MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 ENV APTLIST="dtach ffmpeg git-core mediainfo nano php5-geoip \
 rtorrent unrar unzip wget"
 
+ENV TMP="/tmp" TMPDIR="/tmp" TEMP="/tmp"
+
 # install packages
 RUN add-apt-repository ppa:kirillshkrogalev/ffmpeg-next && \
 add-apt-repository -y ppa:jalaziz/rtorrent && \
