@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # make folders
-mkdir -p /config/rtorrent/rtorrent_sess /config/log/rtorrent /detach_sess
+mkdir -p /config/tmp /config/rtorrent/rtorrent_sess /config/log/rtorrent /detach_sess
 
 # copy config files/set links etc...
 [[ ! -f /config/rtorrent/config.php ]] && cp /defaults/config.php /config/rtorrent/config.php
