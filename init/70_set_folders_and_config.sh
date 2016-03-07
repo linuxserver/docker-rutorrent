@@ -12,4 +12,3 @@ mkdir -p /config/tmp /config/rtorrent/rtorrent_sess /config/log/rtorrent /detach
 # set perms
 chown abc:abc -R /config /detach_sess
 chown abc:abc /downloads
-chmod 1777 /tmp
