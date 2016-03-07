@@ -12,7 +12,7 @@
 	@define('LOG_RPC_CALLS', false, true);
 	@define('LOG_RPC_FAULTS', true, true);
 
-	// for php	
+	// for php
 	@define('PHP_USE_GZIP', false, true);
 	@define('PHP_GZIP_LEVEL', 2, true);
 
@@ -30,8 +30,8 @@
 	$scgi_port = 5000;
 	$scgi_host = "127.0.0.1";
 
-	// For web->rtorrent link through unix domain socket 
-	// (scgi_local in rtorrent conf file), change variables 
+	// For web->rtorrent link through unix domain socket
+	// (scgi_local in rtorrent conf file), change variables
 	// above to something like this:
 	//
 	// $scgi_port = 0;
@@ -43,12 +43,12 @@
 		"php" 	=> '/usr/bin/php',						// Something like /usr/bin/php. If empty, will be found in PATH.
 		"curl"	=> '/usr/bin/curl',			// Something like /usr/bin/curl. If empty, will be found in PATH.
 		"gzip"	=> '/bin/gzip',						// Something like /usr/bin/gzip. If empty, will be found in PATH.
-		"id"	=> 'usr/bin/id',						// Something like /usr/bin/id. If empty, will be found in PATH.
+		"id"	=> '',						// Something like /usr/bin/id. If empty, will be found in PATH.
 		"stat"	=> '/usr/bin/stat',						// Something like /usr/bin/stat. If empty, will be found in PATH.
 	);
 
 	$localhosts = array( 			// list of local interfaces
-		"127.0.0.1", 
+		"127.0.0.1",
 		"localhost",
 	);
 
@@ -57,6 +57,6 @@
 						// Both Webserver and rtorrent users must have read-write access to it.
 						// For example, if Webserver and rtorrent users are in the same group then the value may be 0770.
 
-	$tempDirectory = null;			// Temp directory. Absolute path with trail slash. If null, then autodetect will be used.
+	$tempDirectory = '/config/tmp';			// Temp directory. Absolute path with trail slash. If null, then autodetect will be used.
 
 	$canUseXSendFile = true;		// Use X-Sendfile feature if it exist

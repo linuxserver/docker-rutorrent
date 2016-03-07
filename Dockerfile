@@ -18,10 +18,14 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 #Adding Custom files
 ADD defaults/ /defaults/
 ADD init/ /etc/my_init.d/
-RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
+ADD services/ /etc/service/
+RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh && \
+
+# configure php
+sed -i 's#;upload_tmp_dir =#upload_tmp_dir = /config/tmp#g' /etc/php5/fpm/php.ini
 
 # ports and volumes
-EXPOSE 9527 45566-45576
+EXPOSE 80 9527 45566-45576
 VOLUME /config /downloads
 
 
