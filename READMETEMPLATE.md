@@ -16,7 +16,7 @@ docker create --name=ruttorent \
 -v <path to data>:/config \
 -v <path to downloads>:/downloads \
 -e PGID=<gid> -e PUID=<uid> -e TZ=<timezone> \
--p 80:80 -p 9527:9527 -p 45566-45576:45566-45576 \
+-p 80:80 -p 9527:9527/udp -p 45566-45576:45566-45576 \
 linuxserver/rutorrent
 ```
 
@@ -24,7 +24,7 @@ linuxserver/rutorrent
 
 * `-p 80` - the port(s)
 * `-p 45566-45576` - the port(s)
-* `-p 9527` - the port(s)
+* `-p 9527/udp` - the port(s)
 * `-v /config` - where rutorrent should store it's config files
 * `-v /downloads` - path to your downloads folder
 * `-e PGID` for GroupID - see below for explanation
