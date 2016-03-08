@@ -25,7 +25,7 @@ RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh && \
 sed -i 's#;upload_tmp_dir =#upload_tmp_dir = /config/tmp#g' /etc/php5/fpm/php.ini
 
 # ports and volumes
-EXPOSE 80 9527 45566-45576
+EXPOSE 80 9527/udp 45566-45576
 VOLUME /config /downloads
 
 
