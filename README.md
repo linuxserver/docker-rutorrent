@@ -16,7 +16,7 @@ docker create --name=ruttorent \
 -v <path to data>:/config \
 -v <path to downloads>:/downloads \
 -e PGID=<gid> -e PUID=<uid> -e TZ=<timezone> \
--p 80:80 -p 9527:9527/udp -p 45566-45576:45566-45576 \
+-p 80:80 -p 9527:9527/udp -p 45566:45566 \
 linuxserver/rutorrent
 ```
 
