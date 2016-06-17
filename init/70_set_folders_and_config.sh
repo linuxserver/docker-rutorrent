@@ -3,8 +3,12 @@
 # make folders
 mkdir -p /config/tmp /config/rtorrent/rtorrent_sess /config/log/rtorrent /detach_sess
 
-if [ -f "/detach_sess/.dtach" ]; then
+if [ -e "/detach_sess/.dtach" ]; then
 rm -f /detach_sess/.dtach || true
+fi
+
+if [ -e "/config/rtorrent/rtorrent_sess/rtorrent.lock" ]; then
+rm -f /config/rtorrent/rtorrent_sess/rtorrent.lock || true
 fi
 
 # copy config files/set links etc...
