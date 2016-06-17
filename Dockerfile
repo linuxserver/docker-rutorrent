@@ -27,11 +27,3 @@ sed -i 's#;upload_tmp_dir =#upload_tmp_dir = /config/tmp#g' /etc/php5/fpm/php.in
 # ports and volumes
 EXPOSE 80 9527/udp 45566-45576
 VOLUME /config /downloads
-
-
-
-
-
-
-
-
