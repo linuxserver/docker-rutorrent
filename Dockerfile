@@ -87,5 +87,5 @@ apk del --purge \
 COPY root/ /
 
 # ports and volumes
-EXPOSE 80 5000 6881 51413
+EXPOSE 80 5000 51413 6881
 VOLUME /config /downloads
