@@ -50,7 +50,7 @@ RUN \
 	ncurses-dev \
 	openssl-dev && \
 
-# fetch source
+# fetch mediainfo source
  mkdir -p \
 	"${MEDIAINF_LIB_SRC}" \
 	"${MEDIAINF_SRC}" && \
@@ -61,7 +61,7 @@ curl -o \
  "${MEDIAINF_ROOT}/mediainfo.tar.gz" -L \
 	"${MEDIAINF_WWW}" && \
 
-# unpack source and compile packages
+# unpack source and compile mediainfo
  tar xf "${MEDIAINF_ROOT}/libmediainfo.tar.gz" -C \
 	"${MEDIAINF_LIB_SRC}" --strip-components=1 && \
  tar xf "${MEDIAINF_ROOT}/mediainfo.tar.gz" -C \
