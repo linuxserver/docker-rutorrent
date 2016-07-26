@@ -1,6 +1,6 @@
 ![https://linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
 
-The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring auto-update on startup, easy user mapping and community support. Find us for support at:
+The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring easy user mapping and community support. Find us for support at:
 * [forum.linuxserver.io](https://forum.linuxserver.io)
 * [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`
 * [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
@@ -15,8 +15,10 @@ Popular rtorrent client with a webui for ease of use. [Rutorrent](https://github
 docker create --name=ruttorent \
 -v <path to data>:/config \
 -v <path to downloads>:/downloads \
--e PGID=<gid> -e PUID=<uid> -e TZ=<timezone> \
--p 80:80 -p 9527:9527/udp -p 45566:45566 \
+-e PGID=<gid> -e PUID=<uid> \
+-e TZ=<timezone> \
+-p 80:80 -p 9527:9527/udp \
+-p 45566:45566 \
 linuxserver/rutorrent
 ```
 
@@ -30,6 +32,8 @@ linuxserver/rutorrent
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for timezone information, eg Europe/London
+
+It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it unifi /bin/bash`.
 
 ### User / Group Identifiers
 
@@ -50,15 +54,13 @@ Webui can be found at `<your-ip>:80` , configuration files are in /config/rtorre
 **`
 
 
-## Updates
+## Info
 
 * Shell access whilst the container is running: `docker exec -it rutorrent /bin/bash`
-* Upgrade to the latest version: `docker restart rutorrent`
 * To monitor the logs of the container in realtime: `docker logs -f rutorrent`
-
-
 
 ## Versions
 
-+ **08.03.2016:** Intial Release. 
++ **26.07.16:** Rebase to alpine.
++ **08.03.16:** Intial Release. 
 
