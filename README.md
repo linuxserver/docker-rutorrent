@@ -17,23 +17,24 @@ docker create --name=ruttorent \
 -v <path to downloads>:/downloads \
 -e PGID=<gid> -e PUID=<uid> \
 -e TZ=<timezone> \
--p 80:80 -p 9527:9527/udp \
--p 45566:45566 \
+-p 80:80 -p 5000:5000 \
+-p 51413:51413 -p 6881:6881/udp \
 linuxserver/rutorrent
 ```
 
 **Parameters**
 
 * `-p 80` - the port(s)
-* `-p 45566-45576` - the port(s)
-* `-p 9527/udp` - the port(s)
+* `-p 5000` - the port(s)
+* `-p 51413` - the port(s)
+* `-p 6881/udp` - the port(s)
 * `-v /config` - where rutorrent should store it's config files
 * `-v /downloads` - path to your downloads folder
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for timezone information, eg Europe/London
 
-It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it unifi /bin/bash`.
+It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it rutorrent /bin/bash`.
 
 ### User / Group Identifiers
 
@@ -53,6 +54,8 @@ Webui can be found at `<your-ip>:80` , configuration files are in /config/rtorre
 `** Important note for unraid users or those running a webserver on port 80, change port 80 assignment 
 **`
 
+`** The Port Assignments and configuration folder structure has been changed from the previous ubuntu based 
+versions of this container and we recommend a clean install **`
 
 ## Info
 
