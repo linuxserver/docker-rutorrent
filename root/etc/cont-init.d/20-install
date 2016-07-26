@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+
+mkdir -p /config/www
+
+[[ ! -e /config/www/webui/.git ]] && git clone https://github.com/Novik/ruTorrent.git /config/www/webui
+
+sed -i \
+	-e "/curl/ s/''/'\/usr\/bin\/curl'/" \
+	-e "/php/ s/''/'\/usr\/bin\/php7'/" \
+		/config/www/webui/conf/config.php

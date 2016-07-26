@@ -1,0 +1,36 @@
+#!/usr/bin/with-contenv bash
+
+# create folders
+mkdir -p \
+	/config/{tmp,rtorrent/rtorrent_sess,log/rtorrent,log/nginx} \
+	/downloads{/completed,/incoming,/sessions,/watched} \
+	/detach_sess \
+	/run/nginx
+
+# copy config
+[[ ! -f /config/rtorrent/rtorrent.rc ]] && cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
+
+# delete lock and sess files if exist
+[[ -e /detach_sess/.dtach ]] && rm /detach_sess/.dtach
+[[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && rm /config/rtorrent/rtorrent_sess/rtorrent.lock
+
+# configure php
+sed -i \
+	-e 's/group =.*/group = abc/' \
+	-e 's/listen\.group.*/listen\.group = abc/' \
+	-e 's/listen\.owner.*/listen\.owner = abc/' \
+	-e 's/user =.*/user = abc/' \
+		/etc/php7/php-fpm.d/www.conf
+
+sed -i \
+	-e '/open_basedir =/s/^/\;/' \
+		/etc/php7/php.ini
+
+# permissions
+chown abc:abc \
+	/downloads{/completed,/incoming,/sessions,/watched}
+
+chown abc:abc -R \
+	/config \
+        /detach_sess \
+	/run/nginx
