@@ -1,0 +1,34 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p \
+	/config/{log/lighttpd,log/rtorrent,rtorrent} \
+	/downloads{/completed,/incoming,/sessions,/watched} \
+	/rtorrent/{rtorrent_sess,tmp} \
+	/run/lighttpd
+
+# copy config
+[[ ! -e /config/rtorrent/rtorrent.rc ]] && \
+	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
+
+# create symlink
+
+[[ ! -e /var/www/localhost/rutorrent ]] && ln -s \
+	/usr/share/webapps/rutorrent /var/www/localhost/rutorrent
+
+# delete lock and sess files if exist
+[[ -e /rtorrent/rtorrent_sess/rtorrent.lock ]] && \
+	rm /rtorrent/rtorrent_sess/rtorrent.lock
+
+# permissions
+chmod -R 777 /rtorrent/
+chown abc:abc \
+	/downloads{/completed,/incoming,/sessions,/watched}
+
+chown -R abc:abc \
+	/config \
+	/rtorrent \
+	/run/lighttpd \
+	/usr/share/webapps/rutorrent \
+	/var/www/localhost/rutorrent
+
