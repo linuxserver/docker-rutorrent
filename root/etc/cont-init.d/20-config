@@ -21,8 +21,8 @@ mkdir -p \
 	rm /rtorrent/rtorrent_sess/rtorrent.lock
 
 # permissions
-chmod -R 777 /rtorrent/
 chown abc:abc \
+	/downloads \
 	/downloads{/completed,/incoming,/sessions,/watched}
 
 chown -R abc:abc \
@@ -31,4 +31,6 @@ chown -R abc:abc \
 	/run/lighttpd \
 	/usr/share/webapps/rutorrent \
 	/var/www/localhost/rutorrent
+
+chmod -R 777 /rtorrent
 

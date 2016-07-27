@@ -4,7 +4,7 @@ MAINTAINER sparklyballs
 # package version
 ARG MEDIAINF_VER="0.7.85"
 
-# install packages
+# install packages
 RUN \
  apk add --no-cache \
 	--no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing \
@@ -27,6 +27,7 @@ RUN \
 	unrar \
 	unzip \
 	zip
+
 
 # install build packages
 RUN \
