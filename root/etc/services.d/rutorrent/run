@@ -6,11 +6,11 @@ exec \
 	rtorrent s6-setuidgid abc /usr/bin/rtorrent \
 	-n -o import=/config/rtorrent/rtorrent.rc
 
-until [ -e "/rtorrent/rtorrent_sess/rtorrent.lock" ];
+until [ -e "/config/rtorrent/rtorrent_sess/rtorrent.lock" ];
 do
 sleep 1s
 done
 
-rtorrent_pid=$(cat /rtorrent/rtorrent_sess/rtorrent.lock | cut -d '+' -f 2)
+rtorrent_pid=$(cat /config/rtorrent/rtorrent_sess/rtorrent.lock | cut -d '+' -f 2)
 tail -n 1 -f /config/log/rtorrent/rtorrent.log "$rtorrent_pid"
 

@@ -2,9 +2,9 @@
 
 # make folders
 mkdir -p \
-	/config/{log/lighttpd,log/rtorrent,rtorrent} \
+	/config/{log/lighttpd,log/rtorrent,rtorrent/rtorrent_sess} \
+	/config/rtorrent/profiles{/settings,/torrents,/users,/tmp} \
 	/downloads{/completed,/incoming,/sessions,/watched} \
-	/rtorrent/{rtorrent_sess,tmp} \
 	/run/lighttpd
 
 # copy config
@@ -17,8 +17,8 @@ mkdir -p \
 	/usr/share/webapps/rutorrent /var/www/localhost/rutorrent
 
 # delete lock and sess files if exist
-[[ -e /rtorrent/rtorrent_sess/rtorrent.lock ]] && \
-	rm /rtorrent/rtorrent_sess/rtorrent.lock
+[[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
+	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
 
 # permissions
 chown abc:abc \
@@ -27,10 +27,8 @@ chown abc:abc \
 
 chown -R abc:abc \
 	/config \
-	/rtorrent \
 	/run/lighttpd \
 	/usr/share/webapps/rutorrent \
 	/var/www/localhost/rutorrent
 
-chmod -R 777 /rtorrent
-
+chmod -R 755 /config/rtorrent/profiles
