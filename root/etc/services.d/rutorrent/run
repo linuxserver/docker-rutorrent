@@ -2,7 +2,7 @@
 umask 002
 
 exec \
-	screen -d -m -S \
+	screen -D -m -S \
 	rtorrent s6-setuidgid abc /usr/bin/rtorrent \
 	-n -o import=/config/rtorrent/rtorrent.rc
 
