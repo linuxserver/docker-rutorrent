@@ -41,7 +41,9 @@ RUN \
  cp -r /tmp/ruTorrent-master/* \
 	/usr/share/webapps/rutorrent/ && \
  rm -rf \
+	/defaults/rutorrent-conf/users \
 	/tmp/*
+
 
 # install build packages
 RUN \

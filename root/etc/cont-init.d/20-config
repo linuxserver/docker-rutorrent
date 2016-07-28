@@ -2,8 +2,8 @@
 
 # make folders
 mkdir -p \
-	/config/{log/lighttpd,log/rtorrent,log/rutorrent,rtorrent/rtorrent_sess} \
-	/config/rutorrent{/profiles/settings,/profiles/torrents,/profiles/users,/profiles/tmp,/settings} \
+	/config/{log/lighttpd,log/rtorrent,log/rutorrent,rtorrent/rtorrent_sess,/rutorrent/settings/users} \
+	/config/rutorrent/profiles{/settings,/torrents,/users,/tmp} \
 	/downloads{/completed,/incoming,/sessions,/watched} \
 	/run/lighttpd
 
@@ -22,7 +22,7 @@ cd "${PREV_DIR}" || exit
 	touch /config/log/rutorrent/rutorrent.log
 [[ ! -e /config/rtorrent/rtorrent.rc ]] && \
 	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
-cp /config/rutorrent/settings/* /usr/share/webapps/rutorrent/conf/
+cp -pr /config/rutorrent/settings/* /usr/share/webapps/rutorrent/conf/
 
 # create symlink for webui files
 [[ ! -e /var/www/localhost/rutorrent ]] && ln -s \
