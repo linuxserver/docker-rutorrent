@@ -2,21 +2,33 @@
 
 # make folders
 mkdir -p \
-	/config/{log/lighttpd,log/rtorrent,rtorrent/rtorrent_sess} \
-	/config/rtorrent/profiles{/settings,/torrents,/users,/tmp} \
+	/config/{log/lighttpd,log/rtorrent,log/rutorrent,rtorrent/rtorrent_sess} \
+	/config/rutorrent{/profiles/settings,/profiles/torrents,/profiles/users,/profiles/tmp,/settings} \
 	/downloads{/completed,/incoming,/sessions,/watched} \
 	/run/lighttpd
 
 # copy config
+PREV_DIR=$(pwd)
+
+cd /defaults/rutorrent-conf || exit
+	for i in $(find . -type f)
+ 	do
+		[[ ! -e "/config/rutorrent/settings/${i}" ]] && cp -v "${i}" "/config/rutorrent/settings/${i}"
+ 	done
+
+cd "${PREV_DIR}" || exit
+
+[[ ! -e /config/log/rutorrent/rutorrent.log ]] && \
+	touch /config/log/rutorrent/rutorrent.log
 [[ ! -e /config/rtorrent/rtorrent.rc ]] && \
 	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
+cp /config/rutorrent/settings/* /usr/share/webapps/rutorrent/conf/
 
-# create symlink
-
+# create symlink for webui files
 [[ ! -e /var/www/localhost/rutorrent ]] && ln -s \
 	/usr/share/webapps/rutorrent /var/www/localhost/rutorrent
 
-# delete lock and sess files if exist
+# delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
 	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
 
@@ -31,4 +43,4 @@ chown -R abc:abc \
 	/usr/share/webapps/rutorrent \
 	/var/www/localhost/rutorrent
 
-chmod -R 755 /config/rtorrent/profiles
+chmod -R 755 /config/rutorrent/profiles

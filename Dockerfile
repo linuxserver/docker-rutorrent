@@ -3,13 +3,9 @@ MAINTAINER sparklyballs
 
 # package version
 ARG MEDIAINF_VER="0.7.85"
+ARG RUTORRENT_VER="3.7"
 
-# install packages
 RUN \
- apk add --no-cache \
-	--no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing \
-	rutorrent && \
-
  apk add --no-cache \
 	ca-certificates \
 	curl \
@@ -18,16 +14,34 @@ RUN \
 	geoip \
 	gzip \
 	lighttpd \
-	php5-cgi \
-	php5-json \
-	php5-pear \
 	rtorrent \
 	screen \
 	tar \
 	unrar \
 	unzip \
-	zip
+	zip && \
 
+ apk add --no-cache \
+	--repository http://nl.alpinelinux.org/alpine/edge/testing \
+	php7 \
+	php7-cgi \
+	php7-json  \
+	php7-pear && \
+
+# install webui
+ curl -o \
+ /tmp/rutorrent.zip -L \
+	"http://dl.bintray.com/novik65/generic/ruTorrent-${RUTORRENT_VER}.zip" && \
+ unzip /tmp/rutorrent.zip -d /tmp && \
+ mkdir -p \
+	/usr/share/webapps/rutorrent \
+	/defaults/rutorrent-conf && \
+ mv /tmp/ruTorrent-master/conf/* \
+	/defaults/rutorrent-conf/ && \
+ cp -r /tmp/ruTorrent-master/* \
+	/usr/share/webapps/rutorrent/ && \
+ rm -rf \
+	/tmp/*
 
 # install build packages
 RUN \
@@ -70,6 +84,9 @@ RUN \
  cd /tmp/mediainfo && \
 	./CLI_Compile.sh && \
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
+	sh ./autogen.sh && \
+	./configure \
+		--enable-stream_missing && \
 	make install && \
 
 # cleanup
