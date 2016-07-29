@@ -1,11 +1,12 @@
 #!/usr/bin/with-contenv bash
 
-# make folders
+
+# make folders
 mkdir -p \
-	/config/{log/lighttpd,log/rtorrent,log/rutorrent,rtorrent/rtorrent_sess,/rutorrent/settings/users} \
+	/config{/log/nginx,/log/rtorrent,/log/rutorrent,/nginx,/rtorrent/rtorrent_sess,/rutorrent/settings/users} \
 	/config/rutorrent/profiles{/settings,/torrents,/users,/tmp} \
 	/downloads{/completed,/incoming,/sessions,/watched} \
-	/run/lighttpd
+	/run{/nginx,/php}
 
 # copy config
 PREV_DIR=$(pwd)
@@ -18,28 +19,29 @@ cd /defaults/rutorrent-conf || exit
 
 cd "${PREV_DIR}" || exit
 
-[[ ! -e /config/log/rutorrent/rutorrent.log ]] && \
-	touch /config/log/rutorrent/rutorrent.log
+[[ ! -e /config/nginx/nginx.conf ]] && \
+	cp /defaults/nginx.conf /config/nginx/nginx.conf
+
 [[ ! -e /config/rtorrent/rtorrent.rc ]] && \
 	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
 cp -pr /config/rutorrent/settings/* /usr/share/webapps/rutorrent/conf/
 
-# create symlink for webui files
+# create symlink for webui files
 [[ ! -e /var/www/localhost/rutorrent ]] && ln -s \
-	/usr/share/webapps/rutorrent /var/www/localhost/rutorrent
+/usr/share/webapps/rutorrent /var/www/localhost/rutorrent
 
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
 	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
 
-# permissions
+# permissions
 chown abc:abc \
 	/downloads \
 	/downloads{/completed,/incoming,/sessions,/watched}
 
 chown -R abc:abc \
 	/config \
-	/run/lighttpd \
+	/run \
 	/usr/share/webapps/rutorrent \
 	/var/www/localhost/rutorrent
 

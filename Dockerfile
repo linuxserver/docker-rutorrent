@@ -13,7 +13,7 @@ RUN \
 	ffmpeg \
 	geoip \
 	gzip \
-	lighttpd \
+	nginx \
 	rtorrent \
 	screen \
 	tar \
@@ -25,14 +25,15 @@ RUN \
 	--repository http://nl.alpinelinux.org/alpine/edge/testing \
 	php7 \
 	php7-cgi \
+	php7-fpm \
 	php7-json  \
 	php7-pear && \
 
-# install webui
+# install webui
  curl -o \
  /tmp/rutorrent.zip -L \
 	"http://dl.bintray.com/novik65/generic/ruTorrent-${RUTORRENT_VER}.zip" && \
- unzip /tmp/rutorrent.zip -d /tmp && \
+ unzip -qq /tmp/rutorrent.zip -d /tmp && \
  mkdir -p \
 	/usr/share/webapps/rutorrent \
 	/defaults/rutorrent-conf && \
@@ -43,7 +44,6 @@ RUN \
  rm -rf \
 	/defaults/rutorrent-conf/users \
 	/tmp/*
-
 
 # install build packages
 RUN \
@@ -60,7 +60,7 @@ RUN \
 	ncurses-dev \
 	openssl-dev && \
 
-# fetch and unpack source
+# fetch and unpack source
  curl -o \
  /tmp/libmediainfo.tar.gz -L \
 	"http://mediaarea.net/download/binary/libmediainfo0/${MEDIAINF_VER}/MediaInfo_DLL_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
@@ -76,7 +76,7 @@ RUN \
  tar xf /tmp/mediainfo.tar.gz -C \
 	/tmp/mediainfo --strip-components=1 && \
 
-# compile mediainfo packages
+# compile mediainfo packages
  cd /tmp/libmediainfo && \
 	./SO_Compile.sh && \
  cd /tmp/libmediainfo/ZenLib/Project/GNU/Library && \
@@ -86,9 +86,6 @@ RUN \
  cd /tmp/mediainfo && \
 	./CLI_Compile.sh && \
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
-	sh ./autogen.sh && \
-	./configure \
-		--enable-stream_missing && \
 	make install && \
 
 # cleanup
@@ -101,5 +98,7 @@ RUN \
 COPY root/ /
 
 # ports and volumes
-EXPOSE 80 5000 51413 6881
+EXPOSE 80
 VOLUME /config /downloads
+
+
