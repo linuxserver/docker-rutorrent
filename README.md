@@ -49,7 +49,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 ## Setting up the application 
 
-Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /config/rtorrent and for the webui in /config/rutorrent/settings.
+Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /config/rtorrent, php in config/php and for the webui in /config/rutorrent/settings.
 
 `Settings, changed by the user through the "Settings" panel in ruTorrent, are valid until rtorrent restart. After which all settings will be set according to the rtorrent config file (/config/rtorrent/rtorrent.rc),this is a limitation of the actual apps themselves.`
 
@@ -68,6 +68,8 @@ versions of this container and we recommend a clean install **
 
 ## Versions
 
++ **07.08.16:** Perms fix on nginx tmp folder, also exposed php.ini for editing by user
+in /config/php.
 + **26.07.16:** Rebase to alpine.
 + **08.03.16:** Intial Release.
 
