@@ -43,6 +43,7 @@ chown -R abc:abc \
 	/config \
 	/run \
 	/usr/share/webapps/rutorrent \
+	/var/lib/nginx \
 	/var/www/localhost/rutorrent
 
 chmod -R 755 /config/rutorrent/profiles
