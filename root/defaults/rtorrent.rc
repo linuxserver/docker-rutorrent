@@ -10,6 +10,7 @@ max_peers = 1200
 max_uploads = 15
 download_rate = 10000
 upload_rate = 5000
+# schedule = watch_directory_1,5,5,"load.start=/downloads/watched/*.torrent"
 directory = /downloads/incoming
 session = /config/rtorrent/rtorrent_sess
 schedule = low_diskspace,5,60,close_low_diskspace=100M
