@@ -62,4 +62,3 @@
 	$canUseXSendFile = true;		// Use X-Sendfile feature if it exist
 
 	$locale = "UTF8";
-
