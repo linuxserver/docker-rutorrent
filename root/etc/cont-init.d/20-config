@@ -5,7 +5,8 @@ mkdir -p \
 	/config{/log/nginx,/log/rtorrent,/log/rutorrent,/nginx,/php,/rtorrent/rtorrent_sess,/rutorrent/settings/users} \
 	/config/rutorrent/profiles{/settings,/torrents,/users,/tmp} \
 	/downloads{/completed,/incoming,/sessions,/watched} \
-	/run{/nginx,/php}
+	/run{/nginx,/php} \
+	/var/lib/nginx/tmp/client_body
 
 # copy config
 PREV_DIR=$(pwd)
