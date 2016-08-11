@@ -3,7 +3,6 @@ MAINTAINER sparklyballs
 
 # package version
 ARG MEDIAINF_VER="0.7.85"
-ARG RUTORRENT_VER="3.7"
 
 RUN \
  apk add --no-cache \
@@ -32,7 +31,7 @@ RUN \
 # install webui
  curl -o \
  /tmp/rutorrent.zip -L \
-	"http://dl.bintray.com/novik65/generic/ruTorrent-${RUTORRENT_VER}.zip" && \
+	"https://github.com/Novik/ruTorrent/archive/master.zip" && \
  unzip -qq /tmp/rutorrent.zip -d /tmp && \
  mkdir -p \
 	/usr/share/webapps/rutorrent \
