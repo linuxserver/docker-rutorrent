@@ -19,7 +19,7 @@ Popular rtorrent client with a webui for ease of use. [Rutorrent](https://github
 ## Usage
 
 ```
-docker create --name=ruttorent \
+docker create --name=rutorrent \
 -v <path to data>:/config \
 -v <path to downloads>:/downloads \
 -e PGID=<gid> -e PUID=<uid> \
