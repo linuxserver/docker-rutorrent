@@ -2,8 +2,9 @@ FROM lsiobase/alpine
 MAINTAINER sparklyballs
 
 # package version
-ARG MEDIAINF_VER="0.7.85"
+ARG MEDIAINF_VER="0.7.87"
 
+# install runtime packages
 RUN \
  apk add --no-cache \
 	ca-certificates \
@@ -66,7 +67,6 @@ RUN \
  curl -o \
  /tmp/mediainfo.tar.gz -L \
 	"http://mediaarea.net/download/binary/mediainfo/${MEDIAINF_VER}/MediaInfo_CLI_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
-
  mkdir -p \
 	/tmp/libmediainfo \
 	/tmp/mediainfo && \
