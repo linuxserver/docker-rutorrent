@@ -75,7 +75,7 @@ versions of this container and we recommend a clean install **
 
 ## Versions
 
-+ **28.08.16:** Add badges to README.
++ **28.08.16:** Add badges to README, bump mediainfo version to 0.7.87
 + **07.08.16:** Perms fix on nginx tmp folder, also exposed php.ini for editing by user
 in /config/php.
 + **26.07.16:** Rebase to alpine.
