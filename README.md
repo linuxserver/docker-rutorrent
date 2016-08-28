@@ -6,13 +6,20 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 * [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/rutorrent
+[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/rutorrent.svg)][hub]
+[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/rutorrent.svg)][hub]
+[![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-rutorrent)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-rutorrent/)
+[hub]: https://hub.docker.com/r/linuxserver/rutorrent/
 
 Popular rtorrent client with a webui for ease of use. [Rutorrent](https://github.com/Novik/ruTorrent)
+
+[![rutorrent](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rutorrent.jpg)][rutorrenturl]
+[rutorrenturl]: https://github.com/Novik/ruTorrent
 
 ## Usage
 
 ```
-docker create --name=ruttorent \
+docker create --name=rutorrent \
 -v <path to data>:/config \
 -v <path to downloads>:/downloads \
 -e PGID=<gid> -e PUID=<uid> \
@@ -68,6 +75,7 @@ versions of this container and we recommend a clean install **
 
 ## Versions
 
++ **28.08.16:** Add badges to README.
 + **07.08.16:** Perms fix on nginx tmp folder, also exposed php.ini for editing by user
 in /config/php.
 + **26.07.16:** Rebase to alpine.
