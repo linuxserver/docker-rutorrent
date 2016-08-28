@@ -21,7 +21,7 @@ RUN \
 	zip && \
 
  apk add --no-cache \
-	--repository http://nl.alpinelinux.org/alpine/edge/testing \
+	--repository http://nl.alpinelinux.org/alpine/edge/community \
 	php7 \
 	php7-cgi \
 	php7-fpm \
