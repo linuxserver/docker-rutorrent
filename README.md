@@ -13,7 +13,7 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 
 Popular rtorrent client with a webui for ease of use. [Rutorrent](https://github.com/Novik/ruTorrent)
 
-[![rutorrent](https://danthesalmon.com/blog/wp-content/uploads/2015/12/rutorrent.jpg)][rutorrenturl]
+[![rutorrent](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rutorrent.jpg)][rutorrenturl]
 [rutorrenturl]: https://github.com/Novik/ruTorrent
 
 ## Usage
