@@ -1,14 +1,17 @@
-![https://linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
+[linuxserverurl]: https://linuxserver.io
+[forumurl]: https://forum.linuxserver.io
+[ircurl]: https://www.linuxserver.io/index.php/irc/
+[podcasturl]: https://www.linuxserver.io/index.php/category/podcast/
 
-The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io](https://forum.linuxserver.io)
-* [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`
-* [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
+[![linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)][linuxserverurl]
+
+The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
+* [forum.linuxserver.io][forumurl]
+* [IRC][ircurl] on freenode at `#linuxserver.io`
+* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/rutorrent
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/rutorrent.svg)][hub]
-[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/rutorrent.svg)][hub]
-[![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-rutorrent)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-rutorrent/)
+[![](https://images.microbadger.com/badges/image/linuxserver/rutorrent.svg)](http://microbadger.com/images/linuxserver/rutorrent "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/rutorrent.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/rutorrent.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-rutorrent)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-rutorrent/)
 [hub]: https://hub.docker.com/r/linuxserver/rutorrent/
 
 Popular rtorrent client with a webui for ease of use. [Rutorrent](https://github.com/Novik/ruTorrent)
@@ -75,6 +78,7 @@ versions of this container and we recommend a clean install **
 
 ## Versions
 
++ **09.09.16:** Add layer badges to README.
 + **28.08.16:** Add badges to README, bump mediainfo version to 0.7.87
 + **07.08.16:** Perms fix on nginx tmp folder, also exposed php.ini for editing by user
 in /config/php.
