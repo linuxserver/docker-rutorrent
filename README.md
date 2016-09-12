@@ -57,7 +57,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
-## Setting up the application 
+## Setting up the application
 
 Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /config/rtorrent, php in config/php and for the webui in /config/rutorrent/settings.
 
@@ -67,8 +67,7 @@ Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /
 
 `** It should also be noted that this container when run will create subfolders ,completed, incoming, sessions and watched in the /downloads volume.**`
 
-** The Port Assignments and configuration folder structure has been changed from the previous ubuntu based 
-versions of this container and we recommend a clean install **
+** The Port Assignments and configuration folder structure has been changed from the previous ubuntu based versions of this container and we recommend a clean install **
 
 
 ## Info
@@ -84,4 +83,3 @@ versions of this container and we recommend a clean install **
 in /config/php.
 + **26.07.16:** Rebase to alpine.
 + **08.03.16:** Intial Release.
-
