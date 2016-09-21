@@ -2,7 +2,7 @@ FROM lsiobase/alpine
 MAINTAINER sparklyballs
 
 # package version
-ARG MEDIAINF_VER="0.7.87"
+ARG MEDIAINF_VER="0.7.88"
 
 # install runtime packages
 RUN \
@@ -19,6 +19,7 @@ RUN \
 	tar \
 	unrar \
 	unzip \
+	wget \
 	zip && \
 
  apk add --no-cache \
@@ -29,24 +30,7 @@ RUN \
 	php7-json  \
 	php7-pear && \
 
-# install webui
- curl -o \
- /tmp/rutorrent.zip -L \
-	"https://github.com/Novik/ruTorrent/archive/master.zip" && \
- unzip -qq /tmp/rutorrent.zip -d /tmp && \
- mkdir -p \
-	/usr/share/webapps/rutorrent \
-	/defaults/rutorrent-conf && \
- mv /tmp/ruTorrent-master/conf/* \
-	/defaults/rutorrent-conf/ && \
- cp -r /tmp/ruTorrent-master/* \
-	/usr/share/webapps/rutorrent/ && \
- rm -rf \
-	/defaults/rutorrent-conf/users \
-	/tmp/*
-
 # install build packages
-RUN \
  apk add --no-cache --virtual=build-dependencies \
 	autoconf \
 	automake \
@@ -60,7 +44,22 @@ RUN \
 	ncurses-dev \
 	openssl-dev && \
 
-# fetch and unpack source
+# install webui
+ mkdir -p \
+	/usr/share/webapps/rutorrent \
+	/defaults/rutorrent-conf && \
+ curl -o \
+ /tmp/rutorrent.tar.gz -L \
+	"https://github.com/Novik/ruTorrent/archive/master.tar.gz" && \
+ tar xf \
+ /tmp/rutorrent.tar.gz -C \
+	/usr/share/webapps/rutorrent --strip-components=1 && \
+ mv /usr/share/webapps/rutorrent/conf/* \
+	/defaults/rutorrent-conf/ && \
+ rm -rf \
+	/defaults/rutorrent-conf/users && \
+
+# compile mediainfo packages
  curl -o \
  /tmp/libmediainfo.tar.gz -L \
 	"http://mediaarea.net/download/binary/libmediainfo0/${MEDIAINF_VER}/MediaInfo_DLL_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
@@ -75,7 +74,6 @@ RUN \
  tar xf /tmp/mediainfo.tar.gz -C \
 	/tmp/mediainfo --strip-components=1 && \
 
-# compile mediainfo packages
  cd /tmp/libmediainfo && \
 	./SO_Compile.sh && \
  cd /tmp/libmediainfo/ZenLib/Project/GNU/Library && \

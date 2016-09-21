@@ -77,6 +77,7 @@ Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /
 
 ## Versions
 
++ **21.09.16:** Bump mediainfo, reorg dockerfile, add full wget package.
 + **09.09.16:** Add layer badges to README.
 + **28.08.16:** Add badges to README, bump mediainfo version to 0.7.87
 + **07.08.16:** Perms fix on nginx tmp folder, also exposed php.ini for editing by user
