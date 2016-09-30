@@ -25,4 +25,4 @@ dht_port = 6881
 peer_exchange = yes
 # scgi_port = 0.0.0.0:5000
 encoding_list = UTF-8
-system.umask.set = 002
+system.umask.set = 022
