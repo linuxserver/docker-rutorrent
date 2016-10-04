@@ -4,7 +4,7 @@
 mkdir -p \
 	/config{/log/nginx,/log/rtorrent,/log/rutorrent,/nginx,/php,/rtorrent/rtorrent_sess,/rutorrent/settings/users} \
 	/config/rutorrent/profiles{/settings,/torrents,/users,/tmp} \
-	/downloads{/completed,/incoming,/sessions,/watched} \
+	/downloads{/completed,/incoming,/watched} \
 	/run{/nginx,/php} \
 	/var/lib/nginx/tmp/client_body
 
@@ -45,7 +45,7 @@ cp /config/php/php.ini /etc/php7/php.ini
 # permissions
 chown abc:abc \
 	/downloads \
-	/downloads{/completed,/incoming,/sessions,/watched}
+	/downloads{/completed,/incoming,/watched}
 
 chown -R abc:abc \
 	/config \

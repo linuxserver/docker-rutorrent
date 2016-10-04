@@ -23,6 +23,7 @@ encryption = allow_incoming,try_outgoing,enable_retry
 dht = auto
 dht_port = 6881
 peer_exchange = yes
+# network.http.ssl_verify_peer.set=0
 # scgi_port = 0.0.0.0:5000
 encoding_list = UTF-8
 system.umask.set = 022
