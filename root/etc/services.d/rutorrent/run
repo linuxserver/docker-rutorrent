@@ -1,5 +1,4 @@
 #!/usr/bin/with-contenv bash
-umask 022
 
 exec \
 	screen -D -m -S \
