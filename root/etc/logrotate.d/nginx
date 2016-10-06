@@ -1,0 +1,12 @@
+/config/log/nginx/*.log {
+        daily
+        rotate 7
+        compress
+        nodateext
+        notifempty
+        missingok
+        sharedscripts
+        postrotate
+                s6-svc -h /var/run/s6/services/nginx
+        endscript
+}
