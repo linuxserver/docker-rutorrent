@@ -55,3 +55,4 @@ chown -R abc:abc \
 	/var/www/localhost/rutorrent
 
 chmod -R 755 /config/rutorrent/profiles
+chmod 644 /etc/logrotate.d/*

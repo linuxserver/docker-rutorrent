@@ -13,6 +13,7 @@ RUN \
 	ffmpeg \
 	geoip \
 	gzip \
+	logrotate \
 	nginx \
 	rtorrent \
 	screen \
