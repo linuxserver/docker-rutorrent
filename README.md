@@ -93,7 +93,7 @@ Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `
 
 ## Versions
 
-+ **14-10-16:** Add version layer information.
++ **14.10.16:** Add version layer information.
 + **04.10.16:** Remove redundant sessions folder.
 + **30.09.16:** Fix umask.
 + **21.09.16:** Bump mediainfo, reorg dockerfile, add full wget package.
