@@ -14,9 +14,9 @@ PREV_DIR=$(pwd)
 cd /defaults/rutorrent-conf || exit
 	shopt -s globstar nullglob
 	for i in *
- 	do
+	do
 		[[ ! -e "/config/rutorrent/settings/${i}" ]] && cp -v "${i}" "/config/rutorrent/settings/${i}"
- 	done
+	done
 
 cd "${PREV_DIR}" || exit
 
