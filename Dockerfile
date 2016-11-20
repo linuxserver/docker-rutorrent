@@ -7,7 +7,7 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # package version
-ARG MEDIAINF_VER="0.7.88"
+ARG MEDIAINF_VER="0.7.90"
 
 # install runtime packages
 RUN \
@@ -34,6 +34,7 @@ RUN \
 	php7-cgi \
 	php7-fpm \
 	php7-json  \
+	php7-mbstring \
 	php7-pear && \
 
 # install build packages
