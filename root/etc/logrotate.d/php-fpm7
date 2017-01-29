@@ -1,0 +1,13 @@
+/var/log/php7/*.log {
+        rotate 7
+        daily
+        missingok
+        notifempty
+        delaycompress
+        compress
+        nodateext
+        sharedscripts
+        postrotate
+                s6-svc -t /var/run/s6/services/php-fpm
+        endscript
+}
