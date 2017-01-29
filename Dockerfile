@@ -89,6 +89,9 @@ RUN \
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
 	make install && \
 
+# fix logrotate
+ sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf && \
+
 # cleanup
  apk del --purge \
 	build-dependencies && \
