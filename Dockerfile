@@ -94,7 +94,10 @@ RUN \
 	build-dependencies && \
  rm -rf \
 	/etc/nginx/conf.d/default.conf \
-	/tmp/*
+	/tmp/* && \
+
+# fix logrotate
+ sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf
 
 # add local files
 COPY root/ /
