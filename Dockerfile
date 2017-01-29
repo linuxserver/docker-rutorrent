@@ -1,4 +1,4 @@
-FROM lsiobase/alpine
+FROM lsiobase/alpine:3.5
 MAINTAINER sparklyballs
 
 # set version label
@@ -7,7 +7,7 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # package version
-ARG MEDIAINF_VER="0.7.90"
+ARG MEDIAINF_VER="0.7.91"
 
 # install runtime packages
 RUN \
@@ -20,6 +20,12 @@ RUN \
 	gzip \
 	logrotate \
 	nginx \
+	php7 \
+	php7-cgi \
+	php7-fpm \
+	php7-json  \
+	php7-mbstring \
+	php7-pear \
 	rtorrent \
 	screen \
 	tar \
@@ -27,15 +33,6 @@ RUN \
 	unzip \
 	wget \
 	zip && \
-
- apk add --no-cache \
-	--repository http://nl.alpinelinux.org/alpine/edge/community \
-	php7 \
-	php7-cgi \
-	php7-fpm \
-	php7-json  \
-	php7-mbstring \
-	php7-pear && \
 
 # install build packages
  apk add --no-cache --virtual=build-dependencies \
@@ -46,10 +43,10 @@ RUN \
 	file \
 	g++ \
 	gcc \
+	libressl-dev \
 	libtool \
 	make \
-	ncurses-dev \
-	openssl-dev && \
+	ncurses-dev && \
 
 # install webui
  mkdir -p \

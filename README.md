@@ -93,6 +93,7 @@ Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `
 
 ## Versions
 
++ **29.01.17:** Bump to alpine 3.5.
 + **20.11.16:** Add php7-mbstring package, bump mediainfo to 0.7.90.
 + **14.10.16:** Add version layer information.
 + **04.10.16:** Remove redundant sessions folder.
