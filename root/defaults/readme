@@ -1,0 +1,7 @@
+This folder allows you to install custom plugins. 
+
+Create folders as needed (mirroring the actual structure of the folder /usr/share/webapps/rutorrent/plugins) and during container start, these files will be copied over to the rutorrent plugins folder.
+
+If you make a mistake, or would like to remove a plugin, empty this folder and recreate the container.
+
+NOTICE: This is strictly for advances users and if you decide to go down this route, you're own your own!
