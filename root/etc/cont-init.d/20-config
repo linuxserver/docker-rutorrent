@@ -41,7 +41,7 @@ cp /config/php/php.ini /etc/php7/php.ini
 
 # install custom plugins
 cp /defaults/notice /config/rutorrent/plugins/notice
-cp -R /config/rutorrent/plugins/* /usr/share/webapps/rutorrent/plugins/
+cp -Rv /config/rutorrent/plugins/* /usr/share/webapps/rutorrent/plugins/
 
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
