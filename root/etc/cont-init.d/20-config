@@ -2,7 +2,7 @@
 
 # make folders
 mkdir -p \
-	/config{/log/nginx,/log/rtorrent,/log/rutorrent,/nginx,/rtorrent/rtorrent_sess,/rutorrent/settings/users,/rutorrent/plugins} \
+	/config{/log/nginx,/log/rtorrent,/log/rutorrent,/nginx,/php,/rtorrent/rtorrent_sess,/rutorrent/settings/users,/rutorrent/plugins} \
 	/config/rutorrent/profiles{/settings,/torrents,/users,/tmp} \
 	/downloads{/completed,/incoming,/watched} \
 	/run{/nginx,/php} \
