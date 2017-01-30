@@ -2,7 +2,7 @@
 
 # make folders
 mkdir -p \
-	/config{/log/nginx,/log/rtorrent,/log/rutorrent,/nginx,/rtorrent/rtorrent_sess,/rutorrent/settings/users} \
+	/config{/log/nginx,/log/rtorrent,/log/rutorrent,/nginx,/rtorrent/rtorrent_sess,/rutorrent/settings/users,/rutorrent/profiles} \
 	/config/rutorrent/profiles{/settings,/torrents,/users,/tmp} \
 	/downloads{/completed,/incoming,/watched} \
 	/run{/nginx,/php} \
@@ -38,6 +38,10 @@ cp /config/php/php.ini /etc/php7/php.ini
 # create symlink for webui files
 [[ ! -e /var/www/localhost/rutorrent ]] && ln -s \
 /usr/share/webapps/rutorrent /var/www/localhost/rutorrent
+
+# install custom plugins
+cp /defaults/notice /config/rutorrent/plugins/notice
+cp -R /config/rutorrent/plugins/* /usr/share/webapps/rutorrent/plugins/
 
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
