@@ -39,6 +39,16 @@ cp /config/php/php.ini /etc/php7/php.ini
 [[ ! -e /var/www/localhost/rutorrent ]] && ln -s \
 /usr/share/webapps/rutorrent /var/www/localhost/rutorrent
 
+# themes... place your themes in: /config/themes
+# requires restart to refresh
+find /usr/share/webapps/rutorrent/plugins/theme/themes/ \
+  -mindepth 1 -maxdepth 1 -type l -exec rm {} +
+for i in $(ls -1 /config/themes)
+do
+    ln -s "/config/themes/$i" \
+          "/usr/share/webapps/rutorrent/plugins/theme/themes/$i"
+done
+
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
 	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
