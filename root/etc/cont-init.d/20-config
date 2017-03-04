@@ -45,9 +45,8 @@ cp /config/php/php.ini /etc/php7/php.ini
 	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
 
 # custom themes
-if [ ! -L /usr/share/webapps/rutorrent/plugins/theme/themes ] ; then
+[[ ! -L /usr/share/webapps/rutorrent/plugins/theme/themes ]] && \
 	cp -R /usr/share/webapps/rutorrent/plugins/theme/themes/* /config/themes/
-fi
 rm -rf /usr/share/webapps/rutorrent/plugins/theme/themes
 ln -s /config/themes /usr/share/webapps/rutorrent/plugins/theme/themes
 
