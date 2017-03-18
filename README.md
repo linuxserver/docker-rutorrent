@@ -77,6 +77,13 @@ Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /
 
 Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `system.umask.set` 
 
+If you are seeing this error `Caught internal_error: 'DhtRouter::get_tracker did not actually insert tracker.'.` , a possible fix is to disable dht in `/config/rtorrent/rtorrent.rc` by changing the following values.
+
+```shell
+dht = disable
+peer_exchange = no
+```
+
 ## Info
 
 * Shell access whilst the container is running: `docker exec -it rutorrent /bin/bash`
@@ -93,6 +100,7 @@ Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `
 
 ## Versions
 
++ **18.03.17:** Note in readme about disabling dht in some circumstances.
 + **24.02.17:** Patch a source file to quash rss https bug.
 + **29.01.17:** Bump to alpine 3.5.
 + **20.11.16:** Add php7-mbstring package, bump mediainfo to 0.7.90.
