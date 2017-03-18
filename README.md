@@ -100,6 +100,7 @@ peer_exchange = no
 
 ## Versions
 
++ **18.03.17:** Note in readme about disabling dht in some circumstances.
 + **24.02.17:** Patch a source file to quash rss https bug.
 + **29.01.17:** Bump to alpine 3.5.
 + **20.11.16:** Add php7-mbstring package, bump mediainfo to 0.7.90.
