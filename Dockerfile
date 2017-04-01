@@ -7,7 +7,7 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # package version
-ARG MEDIAINF_VER="0.7.91"
+ARG MEDIAINF_VER="0.7.94"
 
 # copy patches
 COPY patches/ /defaults/patches/
