@@ -10,4 +10,5 @@
         postrotate
                 s6-svc -t /var/run/s6/services/php-fpm
         endscript
+        su abc abc
 }
