@@ -100,6 +100,7 @@ peer_exchange = no
 
 ## Versions
 
++ **03.05.17:** Fix log permissions.
 + **18.03.17:** Note in readme about disabling dht in some circumstances.
 + **24.02.17:** Patch a source file to quash rss https bug.
 + **29.01.17:** Bump to alpine 3.5.
