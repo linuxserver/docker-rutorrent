@@ -20,6 +20,7 @@ RUN \
 	fcgi \
 	ffmpeg \
 	geoip \
+	git \
 	gzip \
 	logrotate \
 	nginx \
@@ -95,6 +96,9 @@ RUN \
 	./CLI_Compile.sh && \
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
 	make install && \
+
+# get additional theme
+git clone git://github.com/phlooo/ruTorrent-MaterialDesign.git /usr/share/webapps/rutorrent/plugins/theme/themes/MaterialDesign && \
 
 # cleanup
  apk del --purge \
