@@ -59,6 +59,8 @@
 
 	$tempDirectory = '/config/rutorrent/profiles/tmp/';			// Temp directory. Absolute path with trail slash. If null, then autodetect will be used.
 
+	$defaultTheme = "MaterialDesign";
+
 	$canUseXSendFile = true;		// Use X-Sendfile feature if it exist
 
 	$locale = "UTF8";
