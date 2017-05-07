@@ -63,6 +63,19 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
+## Authentication
+
+You should set up an authentication by generating a .htpasswd file:
+`htpasswd -c .htpasswd rutorrent`. Then edit `/config/nginx/nginx.conf`:
+```
+server {
+  [...]
+	auth_basic "Restricted";
+	auth_basic_user_file /config/nginx/.htpasswd;
+  [...]
+}
+```
+
 ## Setting up the application
 
 Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /config/rtorrent, php in config/php and for the webui in /config/rutorrent/settings.
