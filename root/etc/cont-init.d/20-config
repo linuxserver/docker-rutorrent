@@ -6,7 +6,8 @@ mkdir -p \
 	/config/rutorrent/profiles{/settings,/torrents,/users,/tmp} \
 	/downloads{/completed,/incoming,/watched} \
 	/run{/nginx,/php} \
-	/var/lib/nginx/tmp/client_body
+	/var/lib/nginx/tmp/client_body \
+	/var/tmp/nginx
 
 
 # copy config
