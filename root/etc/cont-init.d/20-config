@@ -8,6 +8,7 @@ mkdir -p \
 	/run{/nginx,/php} \
 	/var/lib/nginx/tmp/client_body
 
+
 # copy config
 PREV_DIR=$(pwd)
 
@@ -53,6 +54,7 @@ chown -R abc:abc \
 	/run \
 	/usr/share/webapps/rutorrent \
 	/var/lib/nginx \
+	/var/tmp/nginx \
 	/var/www/localhost/rutorrent
 
 chmod -R 755 /config/rutorrent/profiles
