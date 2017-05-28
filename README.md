@@ -100,7 +100,8 @@ peer_exchange = no
 
 ## Versions
 
-+ **29.05.17:** Rebase to alpine 3.6.
++ **28.05.17:** Fix permissions on secondary temp folder of nginx.
++ **26.05.17:** Rebase to alpine 3.6.
 + **03.05.17:** Fix log permissions.
 + **18.03.17:** Note in readme about disabling dht in some circumstances.
 + **24.02.17:** Patch a source file to quash rss https bug.
