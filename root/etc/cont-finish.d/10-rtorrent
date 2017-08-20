@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+# ensure rtorrent shuts down gracefully
+rtorrent_pid=$(< /config/rtorrent/rtorrent_sess/rtorrent.lock cut -d '+' -f 2)
+kill -s SIGINT $rtorrent_pid
+# rtorrent gives 5 seconds to trackers. sleep here to ensure that the rest of the 
+# shutdown process doesn't kill rtorrent impatiently
+sleep 5
