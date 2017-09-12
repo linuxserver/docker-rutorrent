@@ -100,6 +100,7 @@ peer_exchange = no
 
 ## Versions
 
++ **12.09.17:** Cleanly shut down rtorrent.
 + **28.05.17:** Fix permissions on secondary temp folder of nginx.
 + **26.05.17:** Rebase to alpine 3.6.
 + **03.05.17:** Fix log permissions.
