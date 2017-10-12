@@ -100,6 +100,7 @@ peer_exchange = no
 
 ## Versions
 
++ **09.10.17:** Use repo version of mediainfo to shorten build time.
 + **28.05.17:** Fix permissions on secondary temp folder of nginx.
 + **26.05.17:** Rebase to alpine 3.6.
 + **03.05.17:** Fix log permissions.
