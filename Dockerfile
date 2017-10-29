@@ -34,7 +34,7 @@ RUN \
 	wget \
 	zip && \
  apk add --no-cache \
-	--repository http://nl.alpinelinux.org/alpine/edge/testing \
+	--repository http://nl.alpinelinux.org/alpine/edge/community \
 	mediainfo && \
 
 # install webui
