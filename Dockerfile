@@ -6,30 +6,11 @@ ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
-# package version
-ARG MEDIAINF_VER="0.7.94"
-
 # copy patches
 COPY patches/ /defaults/patches/
 
-
-# install build packages
+# install packages
 RUN \
- apk add --no-cache --virtual=build-dependencies \
-	autoconf \
-	automake \
-	cppunit-dev \
-	curl-dev \
-	file \
-	g++ \
-	gcc \
-	git \
-	libressl-dev \
-	libtool \
-	make \
-	ncurses-dev && \
-
-# install runtime packages
  apk add --no-cache \
 	ca-certificates \
 	curl \
@@ -52,6 +33,9 @@ RUN \
 	unzip \
 	wget \
 	zip && \
+ apk add --no-cache \
+	--repository http://nl.alpinelinux.org/alpine/edge/community \
+	mediainfo && \
 
 # install webui
  mkdir -p \
@@ -72,35 +56,7 @@ RUN \
  cd /usr/share/webapps/rutorrent/php && \
  patch < /defaults/patches/snoopy.patch && \
 
-# compile mediainfo packages
- curl -o \
- /tmp/libmediainfo.tar.gz -L \
-	"http://mediaarea.net/download/binary/libmediainfo0/${MEDIAINF_VER}/MediaInfo_DLL_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
- curl -o \
- /tmp/mediainfo.tar.gz -L \
-	"http://mediaarea.net/download/binary/mediainfo/${MEDIAINF_VER}/MediaInfo_CLI_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
- mkdir -p \
-	/tmp/libmediainfo \
-	/tmp/mediainfo && \
- tar xf /tmp/libmediainfo.tar.gz -C \
-	/tmp/libmediainfo --strip-components=1 && \
- tar xf /tmp/mediainfo.tar.gz -C \
-	/tmp/mediainfo --strip-components=1 && \
-
- cd /tmp/libmediainfo && \
-	./SO_Compile.sh && \
- cd /tmp/libmediainfo/ZenLib/Project/GNU/Library && \
-	make install && \
- cd /tmp/libmediainfo/MediaInfoLib/Project/GNU/Library && \
-	make install && \
- cd /tmp/mediainfo && \
-	./CLI_Compile.sh && \
- cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
-	make install && \
-
 # cleanup
- apk del --purge \
-	build-dependencies && \
  rm -rf \
 	/etc/nginx/conf.d/default.conf \
 	/tmp/* && \
