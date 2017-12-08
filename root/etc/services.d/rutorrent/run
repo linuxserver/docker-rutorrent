@@ -10,4 +10,4 @@ sleep 1s
 done
 
 rtorrent_pid=$(< /config/rtorrent/rtorrent_sess/rtorrent.lock cut -d '+' -f 2)
-tail -n 1 -f /config/log/rtorrent/rtorrent.log "$rtorrent_pid"
+tail -n 1 -f /config/log/rtorrent/rtorrent.log --pid "$rtorrent_pid"
