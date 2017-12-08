@@ -1,16 +1,16 @@
-FROM lsiobase/alpine:3.6
-MAINTAINER sparklyballs
+FROM lsiobase/alpine:3.7
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="sparklyballs"
 
 # copy patches
 COPY patches/ /defaults/patches/
 
-# install packages
 RUN \
+ echo "**** install packages ****" && \
  apk add --no-cache \
 	ca-certificates \
 	curl \
@@ -19,6 +19,7 @@ RUN \
 	geoip \
 	gzip \
 	logrotate \
+	mediainfo \
 	nginx \
 	php7 \
 	php7-cgi \
@@ -28,16 +29,13 @@ RUN \
 	php7-pear \
 	rtorrent \
 	screen \
+	sox \
 	tar \
 	unrar \
 	unzip \
 	wget \
 	zip && \
- apk add --no-cache \
-	--repository http://nl.alpinelinux.org/alpine/edge/community \
-	mediainfo && \
-
-# install webui
+ echo "**** install webui ****" && \
  mkdir -p \
 	/usr/share/webapps/rutorrent \
 	/defaults/rutorrent-conf && \
@@ -51,18 +49,15 @@ RUN \
 	/defaults/rutorrent-conf/ && \
  rm -rf \
 	/defaults/rutorrent-conf/users && \
-
-# patch snoopy.inc for rss fix
+ echo "**** patch snoopy.inc for rss fix ****" && \
  cd /usr/share/webapps/rutorrent/php && \
  patch < /defaults/patches/snoopy.patch && \
-
-# cleanup
+ echo "**** fix logrotate ****" && \
+ sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf && \
+ echo "**** cleanup ****" && \
  rm -rf \
 	/etc/nginx/conf.d/default.conf \
-	/tmp/* && \
-
-# fix logrotate
- sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf
+	/tmp/*
 
 # add local files
 COPY root/ /
