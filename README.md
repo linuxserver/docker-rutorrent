@@ -63,6 +63,8 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
+Running this application as root or setting the PUID to 0 will cause FPM to fail to start. Since it's run under s6 init it will just keep looping but you will be unable to reach the rtorrent daemon.
+
 ## Setting up the application
 
 Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /config/rtorrent, php in config/php and for the webui in /config/rutorrent/settings.
