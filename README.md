@@ -86,7 +86,8 @@ peer_exchange = no
 If after updating you see an error about connecting to rtorrent in the webui, 
 remove or comment out the following lines in /config/rtorrent/rtorrent.rc
 
-```use_udp_trackers = yes
+```
+use_udp_trackers = yes
 peer_exchange = yes
 ```
 
