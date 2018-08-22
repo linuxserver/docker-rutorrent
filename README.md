@@ -83,6 +83,12 @@ If you are seeing this error `Caught internal_error: 'DhtRouter::get_tracker did
 dht = disable
 peer_exchange = no
 ```
+If after updating you see an error about connecting to rtorrent in the webui, 
+remove or comment out the following lines in /config/rtorrent/rtorrent.rc
+
+```use_udp_trackers = yes
+peer_exchange = yes
+```
 
 ## Info
 
@@ -100,6 +106,7 @@ peer_exchange = no
 
 ## Versions
 
++ **22.08.18:** Rebase to alpine 3.8.
 + **08.12.17:** Rebase to alpine 3.7, add sox package.
 + **28.10.17:** Mediainfo moved from testing to community repo.
 + **09.10.17:** Use repo version of mediainfo to shorten build time.
