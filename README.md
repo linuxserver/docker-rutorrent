@@ -84,6 +84,15 @@ dht = disable
 peer_exchange = no
 ```
 
+If after updating you see an error about connecting to rtorrent in the webui, 
+remove or comment out these lines in /config/rtorrent/rtorrent.rc ,whatever value is set, yes or no.
+Just setting them to no will still cause the error..
+
+```
+use_udp_trackers = yes
+peer_exchange = yes
+```
+
 ## Info
 
 * Shell access whilst the container is running: `docker exec -it rutorrent /bin/bash`
@@ -100,6 +109,7 @@ peer_exchange = no
 
 ## Versions
 
++ **22.08.18:** Rebase to alpine 3.8.
 + **08.12.17:** Rebase to alpine 3.7, add sox package.
 + **28.10.17:** Mediainfo moved from testing to community repo.
 + **09.10.17:** Use repo version of mediainfo to shorten build time.

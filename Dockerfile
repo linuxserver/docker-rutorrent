@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.7
+FROM lsiobase/alpine:3.8
 
 # set version label
 ARG BUILD_DATE
@@ -10,7 +10,7 @@ LABEL maintainer="sparklyballs"
 COPY patches/ /defaults/patches/
 
 RUN \
- echo "**** install packages ****" && \
+ echo "**** install runtime packages ****" && \
  apk add --no-cache \
 	ca-certificates \
 	curl \

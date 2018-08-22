@@ -18,11 +18,9 @@ schedule = low_diskspace,5,60,close_low_diskspace=100M
 bind = 0.0.0.0
 port_range = 51413-51413
 check_hash = yes
-use_udp_trackers = yes
 encryption = allow_incoming,try_outgoing,enable_retry
 dht = auto
 dht_port = 6881
-peer_exchange = yes
 # network.http.ssl_verify_peer.set=0
 # scgi_port = 0.0.0.0:5000
 encoding_list = UTF-8
