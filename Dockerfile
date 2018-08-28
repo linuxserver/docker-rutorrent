@@ -12,6 +12,7 @@ COPY patches/ /defaults/patches/
 RUN \
  echo "**** install runtime packages ****" && \
  apk add --no-cache \
+	bind-tools \
 	ca-certificates \
 	curl \
 	fcgi \

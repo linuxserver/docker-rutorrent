@@ -109,6 +109,7 @@ peer_exchange = yes
 
 ## Versions
 
++ **27.08.18:** Add bind tools package.
 + **22.08.18:** Rebase to alpine 3.8.
 + **08.12.17:** Rebase to alpine 3.7, add sox package.
 + **28.10.17:** Mediainfo moved from testing to community repo.
