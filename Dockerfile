@@ -34,6 +34,7 @@ RUN \
 	tar \
 	unrar \
 	unzip \
+	util-linux \
 	wget \
 	zip && \
  echo "**** install webui ****" && \
