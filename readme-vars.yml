@@ -1,0 +1,61 @@
+---
+
+# project information
+project_name: rutorrent
+project_url: "https://github.com/Novik/ruTorrent"
+project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rutorrent.jpg"
+project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is a popular rtorrent client with a webui for ease of use."
+project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
+
+# supported architectures
+available_architectures:
+  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
+  - { arch: "{{ arch_armhf }}", tag: "arm32v6-latest"}
+
+# container parameters
+common_param_env_vars_enabled: true #PGID, PUID, etc
+param_container_name: "{{ project_name }}"
+param_usage_include_vols: true
+param_volumes:
+  - { vol_path: "/config", vol_host_path: "</path/to/{{ project_name }}/config>", desc: "where ruTorrent should store it's config files" }
+  - { vol_path: "/downloads", vol_host_path: "</path/to/{{ project_name }}/downloads>", desc: "path to your downloads folder" }
+param_usage_include_ports: true
+param_ports:
+  - { external_port: "80", internal_port: "80", port_desc: "ruTorrent Web UI" }
+param_usage_include_env: true
+
+# application setup block
+app_setup_block_enabled: true
+app_setup_block: |
+  Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /config/rtorrent, php in config/php and for the webui in /config/rutorrent/settings.
+
+  `Settings, changed by the user through the "Settings" panel in ruTorrent, are valid until rtorrent restart. After which all settings will be set according to the rtorrent config file (/config/rtorrent/rtorrent.rc),this is a limitation of the actual apps themselves.`
+
+  ** Important note for unraid users or those running services such as a webserver on port 80, change port 80 assignment **
+
+  `** It should also be noted that this container when run will create subfolders ,completed, incoming and watched in the /downloads volume.**`
+
+  ** The Port Assignments and configuration folder structure has been changed from the previous ubuntu based versions of this container and we recommend a clean install **
+
+  Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `system.umask.set`
+
+  If you are seeing this error `Caught internal_error: 'DhtRouter::get_tracker did not actually insert tracker.'.` , a possible fix is to disable dht in `/config/rtorrent/rtorrent.rc` by changing the following values.
+
+  ```shell
+  dht = disable
+  peer_exchange = no
+  ```
+
+  If after updating you see an error about connecting to rtorrent in the webui,
+  remove or comment out these lines in /config/rtorrent/rtorrent.rc ,whatever value is set, yes or no.
+  Just setting them to no will still cause the error..
+
+  ```
+  use_udp_trackers = yes
+  peer_exchange = yes
+  ```
+
+# changelog
+changelogs:
+  - { date: "27.09.17:", desc: "Initial Release." }
