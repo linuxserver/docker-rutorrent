@@ -18,6 +18,12 @@ done
 	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
 cp -pr /config/rutorrent/settings/* /app/rutorrent/conf/
 
+# move and symlink themes folder for custom theme usage
+[[ ! -e /config/themes ]] && \
+	mv /app/rutorrent/plugins/theme/themes /config/
+rm -rf /app/rutorrent/plugins/theme/themes
+ln -s /config/themes /app/rutorrent/plugins/theme/themes
+
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
 	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
