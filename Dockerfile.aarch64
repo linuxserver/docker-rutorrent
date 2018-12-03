@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.nginx.armhf:3.8
+FROM lsiobase/alpine.nginx.arm64:3.8
 
 # Add qemu to build on x86_64 systems
 COPY qemu-aarch64-static /usr/bin
@@ -33,7 +33,7 @@ RUN \
 	zip && \
  echo "**** install rutorrent ****" && \
  if [ -z ${RUTORRENT_VERSION+x} ]; then \
-	RUTORRENT_VERSION=$(curl -sX GET https://api.github.com/repos/Novik/rutorrent/commits/development \
+	RUTORRENT_VERSION=$(curl -sX GET https://api.github.com/repos/Novik/rutorrent/commits/master \
 	| awk '/sha/{print $4;exit}' FS='[""]'); \
  fi && \
  curl -o \
