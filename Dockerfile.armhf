@@ -33,7 +33,7 @@ RUN \
 	zip && \
  echo "**** install rutorrent ****" && \
  if [ -z ${RUTORRENT_VERSION+x} ]; then \
-	RUTORRENT_VERSION=$(curl -sX GET https://api.github.com/repos/Novik/rutorrent/commits/development \
+	RUTORRENT_VERSION=$(curl -sX GET https://api.github.com/repos/Novik/rutorrent/commits/master \
 	| awk '/sha/{print $4;exit}' FS='[""]'); \
  fi && \
  curl -o \
