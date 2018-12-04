@@ -3,7 +3,7 @@ FROM lsiobase/alpine.nginx:3.8
 # set version label
 ARG BUILD_DATE
 ARG VERSION
-ARG RUTORRENT_VERSION
+ARG RUTORRENT_COMMIT
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="alex-phillips"
 

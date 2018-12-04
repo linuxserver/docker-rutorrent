@@ -23,6 +23,9 @@ param_volumes:
 param_usage_include_ports: true
 param_ports:
   - { external_port: "80", internal_port: "80", port_desc: "ruTorrent Web UI" }
+  - { external_port: "5000", internal_port: "5000", port_desc: "scgi port" }
+  - { external_port: "51413", internal_port: "51413", port_desc: "Bit-torrent port" }
+  - { external_port: "6881", internal_port: "6881/udp", port_desc: "Bit-torrent port" }
 param_usage_include_env: true
 
 # application setup block
@@ -58,4 +61,25 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "27.09.17:", desc: "Initial Release." }
+  - { date: "03.11.18:", desc: "Add pipeline and multi arch logic to repo." }
+  - { date: "27.08.18:", desc: "Add bind tools package." }
+  - { date: "22.08.18:", desc: "Rebase to alpine 3.8." }
+  - { date: "08.12.17:", desc: "Rebase to alpine 3.7, add sox package." }
+  - { date: "28.10.17:", desc: "Mediainfo moved from testing to community repo." }
+  - { date: "09.10.17:", desc: "Use repo version of mediainfo to shorten build time." }
+  - { date: "28.05.17:", desc: "Fix permissions on secondary temp folder of nginx." }
+  - { date: "26.05.17:", desc: "Rebase to alpine 3.6." }
+  - { date: "03.05.17:", desc: "Fix log permissions." }
+  - { date: "18.03.17:", desc: "Note in readme about disabling dht in some circumstances." }
+  - { date: "24.02.17:", desc: "Patch a source file to quash rss https bug." }
+  - { date: "29.01.17:", desc: "Rebase to alpine 3.5." }
+  - { date: "20.11.16:", desc: "Add php7-mbstring package, bump mediainfo to 0.7.90." }
+  - { date: "14.10.16:", desc: "Add version layer information." }
+  - { date: "04.10.16:", desc: "Remove redundant sessions folder." }
+  - { date: "30.09.16:", desc: "Fix umask." }
+  - { date: "21.09.16:", desc: "Bump mediainfo, reorg dockerfile, add full wget package." }
+  - { date: "09.09.16:", desc: "Add layer badges to README." }
+  - { date: "28.08.16:", desc: "Add badges to README, bump mediainfo version to 0.7.87." }
+  - { date: "07.08.16:", desc: "Perms fix on nginx tmp folder, also exposed php.ini for editing by use in /config/php." }
+  - { date: "26.07.16:", desc: "Rebase to alpine." }
+  - { date: "08.03.16:", desc: "Initial Release." }
