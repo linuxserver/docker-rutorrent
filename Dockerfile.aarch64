@@ -40,7 +40,8 @@ RUN \
  /tmp/rutorrent.tar.gz -L \
 	"https://github.com/Novik/rutorrent/archive/${RUTORRENT_VERSION}.tar.gz" && \
  mkdir -p \
-	/app/rutorrent && \
+        /app/rutorrent \
+        /defaults/rutorrent-conf && \
  tar xf \
  /tmp/rutorrent.tar.gz -C \
 	/app/rutorrent --strip-components=1 && \
