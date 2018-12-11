@@ -1,3 +1,0 @@
-#!/usr/bin/with-contenv bash
-/usr/sbin/php-fpm7 -F -y /etc/php7/php-fpm.d/rutorrent.conf
-

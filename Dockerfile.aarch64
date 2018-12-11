@@ -1,4 +1,7 @@
-FROM lsiobase/alpine.nginx:3.8
+FROM lsiobase/alpine.nginx.arm64:3.8
+
+# Add qemu to build on x86_64 systems
+COPY qemu-aarch64-static /usr/bin
 
 # set version label
 ARG BUILD_DATE
@@ -37,8 +40,8 @@ RUN \
  /tmp/rutorrent.tar.gz -L \
 	"https://github.com/Novik/rutorrent/archive/${RUTORRENT_VERSION}.tar.gz" && \
  mkdir -p \
-	/app/rutorrent \
-	/defaults/rutorrent-conf && \
+        /app/rutorrent \
+        /defaults/rutorrent-conf && \
  tar xf \
  /tmp/rutorrent.tar.gz -C \
 	/app/rutorrent --strip-components=1 && \
@@ -59,4 +62,4 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 80
-
+VOLUME /config /downloads
