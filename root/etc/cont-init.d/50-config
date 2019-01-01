@@ -20,11 +20,11 @@ cp -pr /config/rutorrent/settings/* /app/rutorrent/conf/
 
 # copy over any theme files to themes folder
 [[ -e /config/themes ]] && \
-	cp -R /config/themes/ /app/rutorrent/plugins/theme/themes/
+	cp -R /config/themes/ /app/rutorrent/plugins/theme/
 
 # copy over any plugins to the plugins folder
 [[ -e /config/plugins ]] && \
-	cp -R /config/plugins/ /app/rutorrent/plugins/
+	cp -R /config/plugins/ /app/rutorrent/
 
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
