@@ -24,7 +24,7 @@ cp -pr /config/rutorrent/settings/* /app/rutorrent/conf/
 
 # copy over any plugins to the plugins folder
 [[ -e /config/plugins ]] && \
-	cp -R /config/plugins/ /app/rutorrent/plugins/
+	cp -R /config/plugins/ /app/rutorrent/
 
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
