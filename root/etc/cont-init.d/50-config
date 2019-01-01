@@ -20,7 +20,7 @@ cp -pr /config/rutorrent/settings/* /app/rutorrent/conf/
 
 # copy over any theme files to themes folder
 [[ -e /config/themes ]] && \
-	cp -R /config/themes/ /app/rutorrent/plugins/theme/themes/
+	cp -R /config/themes/ /app/rutorrent/plugins/theme/
 
 # copy over any plugins to the plugins folder
 [[ -e /config/plugins ]] && \
