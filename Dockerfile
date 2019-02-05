@@ -23,7 +23,7 @@ RUN \
 	php7 \
 	php7-cgi \
 	php7-pear \
-	php-zip \
+	php7-zip \
 	rtorrent \
 	screen \
 	sox \
@@ -60,4 +60,3 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 80
-

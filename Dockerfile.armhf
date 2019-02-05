@@ -26,6 +26,7 @@ RUN \
 	php7 \
 	php7-cgi \
 	php7-pear \
+	php7-zip \
 	rtorrent \
 	screen \
 	sox \
