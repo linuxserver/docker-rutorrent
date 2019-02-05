@@ -112,6 +112,8 @@ libmediainfo libmediainfo-18.05-r0
 mediainfo mediainfo-18.05-r0
 php7-cgi php7-cgi-7.2.13-r0
 php7-pear php7-pear-7.2.13-r0
+libzip libzip-1.5.1-r1
+php7-zip php7-zip-7.2.13-r0
 libtorrent libtorrent-0.13.7-r0
 xmlrpc-c xmlrpc-c-1.39.11-r0
 rtorrent rtorrent-0.9.7-r1
