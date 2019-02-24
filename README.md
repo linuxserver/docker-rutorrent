@@ -188,6 +188,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **22.02.19:** - Rebasing to alpine 3.9.
 * **03.11.18:** - Add pipeline and multi arch logic to repo.
 * **27.08.18:** - Add bind tools package.
 * **22.08.18:** - Rebase to alpine 3.8.
