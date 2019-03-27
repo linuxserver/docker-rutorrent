@@ -59,7 +59,7 @@ libpng-1.6.35-r0
 libressl2.7-libcrypto-2.7.5-r0
 libressl2.7-libssl-2.7.5-r0
 libsndfile-1.0.28-r7
-libssh2-1.8.1-r0
+libssh2-1.8.2-r0
 libssl1.1-1.1.1b-r1
 libstdc++-8.2.0-r2
 libtasn1-4.13-r0
