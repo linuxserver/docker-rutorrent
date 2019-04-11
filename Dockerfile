@@ -24,11 +24,16 @@ RUN \
 	php7-cgi \
 	php7-pear \
 	php7-zip \
+	procps \
+	python3 \
 	rtorrent \
 	screen \
 	sox \
 	unrar \
 	zip && \
+ echo "**** install pip packages ****" && \
+ pip3 install --no-cache-dir -U \
+	cfscrape && \
  echo "**** install rutorrent ****" && \
  if [ -z ${RUTORRENT_VERSION+x} ]; then \
 	RUTORRENT_VERSION=$(curl -sX GET https://api.github.com/repos/Novik/rutorrent/commits/master \
@@ -53,6 +58,7 @@ RUN \
  echo "**** cleanup ****" && \
  rm -rf \
 	/etc/nginx/conf.d/default.conf \
+	/root/.cache \
 	/tmp/*
 
 # add local files
