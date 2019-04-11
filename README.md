@@ -191,6 +191,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **11.04.19:** - Fix warnings in webui by adding python3, procps and pip packages.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
 * **22.02.19:** - Rebasing to alpine 3.9.
 * **03.11.18:** - Add pipeline and multi arch logic to repo.
