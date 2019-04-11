@@ -41,6 +41,8 @@
 
 	$pathToExternals = array(
 		"php" 	=> '/usr/bin/php7',			// Something like /usr/bin/php. If empty, will be found in PATH.
+		"pgrep" => '/usr/bin/pgrep',			// Something like /usr/bin/pgrep. If empty, will be found in PATH.
+		"python" => '/usr/bin/python3',			// Something like /usr/bin/python3. If empty, will be found in PATH.
 		"curl"	=> '/usr/bin/curl',			// Something like /usr/bin/curl. If empty, will be found in PATH.
 		"gzip"	=> '/usr/bin/gzip',			// Something like /usr/bin/gzip. If empty, will be found in PATH.
 		"id"	=> '/usr/bin/id',			// Something like /usr/bin/id. If empty, will be found in PATH.
