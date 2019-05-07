@@ -211,6 +211,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **07.05.19:** - Add cloudscraper pip package.
 * **11.04.19:** - Fix warnings in webui by adding python3, procps and pip packages.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
 * **22.02.19:** - Rebasing to alpine 3.9.
