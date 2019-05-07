@@ -11,6 +11,10 @@ LABEL maintainer="alex-phillips"
 COPY patches/ /defaults/patches/
 
 RUN \
+ echo "**** install build packages ****" && \
+ apk add --no-cache --virtual=build-dependencies \
+	g++ \
+	python3-dev && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache --upgrade \
 	bind-tools \
@@ -33,7 +37,8 @@ RUN \
 	zip && \
  echo "**** install pip packages ****" && \
  pip3 install --no-cache-dir -U \
-	cfscrape && \
+	cfscrape \
+	cloudscraper && \
  echo "**** install rutorrent ****" && \
  if [ -z ${RUTORRENT_VERSION+x} ]; then \
 	RUTORRENT_VERSION=$(curl -sX GET https://api.github.com/repos/Novik/rutorrent/commits/master \
@@ -56,6 +61,8 @@ RUN \
  cd /app/rutorrent/php && \
  patch < /defaults/patches/snoopy.patch && \
  echo "**** cleanup ****" && \
+ apk del --purge \
+	build-dependencies && \
  rm -rf \
 	/etc/nginx/conf.d/default.conf \
 	/root/.cache \
