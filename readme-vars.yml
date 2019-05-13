@@ -61,6 +61,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "13.05.19:", desc: "Add libffi and openssl." }
   - { date: "07.05.19:", desc: "Add cloudscraper pip package." }
   - { date: "11.04.19:", desc: "Fix warnings in webui by adding python3, procps and pip packages." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
