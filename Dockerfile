@@ -14,6 +14,8 @@ RUN \
  echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
 	g++ \
+	libffi-dev \
+	openssl-dev \
 	python3-dev && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache --upgrade \
@@ -23,7 +25,9 @@ RUN \
 	ffmpeg \
 	geoip \
 	gzip \
+	libffi \
 	mediainfo \
+	openssl \
 	php7 \
 	php7-cgi \
 	php7-pear \
