@@ -211,6 +211,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.05.19:** - Shift to building from official releases instead of commits.
 * **13.05.19:** - Add libffi and openssl.
 * **07.05.19:** - Add cloudscraper pip package.
 * **11.04.19:** - Fix warnings in webui by adding python3, procps and pip packages.
