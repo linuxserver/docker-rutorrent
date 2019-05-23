@@ -1,4 +1,4 @@
-FROM lsiobase/nginx:3.9
+FROM lsiobase/nginx:arm32v7-3.9
 
 # set version label
 ARG BUILD_DATE

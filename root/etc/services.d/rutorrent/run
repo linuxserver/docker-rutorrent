@@ -1,13 +1,14 @@
 #!/usr/bin/with-contenv bash
 
-	screen -D -m -S \
-	rtorrent s6-setuidgid abc /usr/bin/rtorrent \
-	-n -o import=/config/rtorrent/rtorrent.rc
+_term() {
+  echo "Caught SIGTERM signal!"
+  killall -TERM rtorrent 2>/dev/null
+}
 
-until [ -e "/config/rtorrent/rtorrent_sess/rtorrent.lock" ];
-do
-sleep 1s
-done
+trap _term SIGTERM
 
-rtorrent_pid=$(< /config/rtorrent/rtorrent_sess/rtorrent.lock cut -d '+' -f 2)
-tail -n 1 -f /config/log/rtorrent/rtorrent.log --pid "$rtorrent_pid"
+screen -D -m -S \
+rtorrent s6-setuidgid abc /usr/bin/rtorrent \
+-n -o import=/config/rtorrent/rtorrent.rc &
+
+wait

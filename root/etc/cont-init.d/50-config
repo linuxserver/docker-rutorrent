@@ -1,0 +1,43 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p \
+	/config{/log/rtorrent,/log/rutorrent,/rtorrent/rtorrent_sess,/rutorrent/settings/users} \
+	/config/rutorrent/profiles{/settings,/torrents,/users,/tmp} \
+	/downloads{/completed,/incoming,/watched} \
+	/run/php
+
+cd /defaults/rutorrent-conf || exit
+shopt -s globstar nullglob
+for i in *
+do
+	[[ ! -e "/config/rutorrent/settings/${i}" ]] && cp -v "${i}" "/config/rutorrent/settings/${i}"
+done
+
+[[ ! -e /config/rtorrent/rtorrent.rc ]] && \
+	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
+cp -pr /config/rutorrent/settings/* /app/rutorrent/conf/
+
+# copy over any theme files to themes folder
+[[ -e /config/themes ]] && \
+	cp -R /config/themes/ /app/rutorrent/plugins/theme/
+
+# copy over any plugins to the plugins folder
+[[ -e /config/plugins ]] && \
+	cp -R /config/plugins/ /app/rutorrent/
+
+# delete lock file if exists
+[[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
+	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
+
+# permissions
+chown abc:abc \
+	/downloads \
+	/downloads{/completed,/incoming,/watched}
+
+chown -R abc:abc \
+	/config \
+	/run \
+	/app/rutorrent
+
+chmod -R 755 /config/rutorrent/profiles

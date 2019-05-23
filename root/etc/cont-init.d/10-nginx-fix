@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+# since this new version is built off of our alpine.nginx image,
+# the old nginx config files do no work. We check for a hidden
+# file here that we touch, and if it doesn't exist, remove the
+# old nginx directory so the new files can be put in place
+if [ ! -e /config/.upgraded-v2 ]; then
+    echo "Old version detected, removing /config/nginx"
+    rm -rf /config/nginx
+else
+    echo "Current version detected."
+fi
+
+touch /config/.upgraded-v2
