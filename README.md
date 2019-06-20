@@ -136,7 +136,7 @@ If you are seeing this error `Caught internal_error: 'DhtRouter::get_tracker did
 
 ```shell
 dht = disable
-peer_exchange = no
+protocol.pex.set = 0
 ```
 
 If after updating you see an error about connecting to rtorrent in the webui,
