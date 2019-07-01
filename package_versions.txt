@@ -13,7 +13,7 @@ ca-certificates-20190108-r0
 ca-certificates-cacert-20190108-r0
 coreutils-8.30-r0
 curl-7.64.0-r2
-expat-2.2.6-r0
+expat-2.2.7-r0
 fcgi-2.4.0-r8
 ffmpeg-4.0.2-r0
 ffmpeg-libs-4.0.2-r0
