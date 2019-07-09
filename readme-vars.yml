@@ -61,6 +61,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "20.05.19:", desc: "Shift to building from official releases instead of commits." }
   - { date: "13.05.19:", desc: "Add libffi and openssl." }
   - { date: "07.05.19:", desc: "Add cloudscraper pip package." }
