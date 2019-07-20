@@ -31,7 +31,7 @@ gnutls-3.6.8-r0
 gsm-1.0.18-r0
 gzip-1.10-r0
 json-c-0.13.1-r0
-keyutils-libs-1.6-r0
+keyutils-libs-1.6-r1
 krb5-conf-1.0-r1
 krb5-libs-1.17-r0
 lame-3.100-r0
