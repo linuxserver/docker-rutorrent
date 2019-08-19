@@ -30,6 +30,7 @@ RUN \
 	openssl \
 	php7 \
 	php7-cgi \
+	php7-curl \
 	php7-pear \
 	php7-zip \
 	procps \
