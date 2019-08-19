@@ -108,6 +108,7 @@ pcre2-10.33-r0
 php7-7.3.8-r0
 php7-cgi-7.3.8-r0
 php7-common-7.3.8-r0
+php7-curl-7.3.8-r0
 php7-fileinfo-7.3.8-r0
 php7-fpm-7.3.8-r0
 php7-json-7.3.8-r0
