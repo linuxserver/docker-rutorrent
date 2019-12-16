@@ -25,7 +25,7 @@ fribidi-1.0.5-r2
 fstrm-0.5.0-r0
 gdbm-1.13-r1
 geoip-1.6.12-r1
-git-2.22.0-r0
+git-2.22.2-r0
 gmp-6.1.2-r1
 gnutls-3.6.8-r0
 gsm-1.0.18-r0
