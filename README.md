@@ -174,7 +174,7 @@ use_udp_trackers = yes
 peer_exchange = yes
 ```
 
-
+To add themes, create a themes folder in your /config directory and add your theme folders. Ensure proper user and group ownership is set once you add the directories.
 
 ## Support Info
 
