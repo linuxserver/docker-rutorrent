@@ -46,8 +46,8 @@ app_setup_block: |
   If you are seeing this error `Caught internal_error: 'DhtRouter::get_tracker did not actually insert tracker.'.` , a possible fix is to disable dht in `/config/rtorrent/rtorrent.rc` by changing the following values.
 
   ```shell
-  dht = disable
-  protocol.pex.set = 0
+  dht.mode.set = disable
+  protocol.pex.set = no
   ```
 
   If after updating you see an error about connecting to rtorrent in the webui,
@@ -55,14 +55,15 @@ app_setup_block: |
   Just setting them to no will still cause the error..
 
   ```
-  use_udp_trackers = yes
-  peer_exchange = yes
+  trackers.use_udp.set = yes
+  protocol.pex.set = no
   ```
 
   To add themes, create a themes folder in your /config directory and add your theme folders. Ensure proper user and group ownership is set once you add the directories.
 
 # changelog
 changelogs:
+  - { date: "29.02.20:", desc: "Update readme for pex/dht." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "20.05.19:", desc: "Shift to building from official releases instead of commits." }
   - { date: "13.05.19:", desc: "Add libffi and openssl." }
