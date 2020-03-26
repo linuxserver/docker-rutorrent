@@ -58,6 +58,12 @@ RUN \
  tar xf \
  /tmp/rutorrent.tar.gz -C \
 	/app/rutorrent --strip-components=1 && \
+ echo "**** install themes ****" && \
+ curl -o /tmp/material-design.tar.gz -L \
+     "https://github.com/themightykitten/ruTorrent-MaterialDesign/archive/master.tar.gz" && \
+ mkdir -p /app/rutorrent/plugins/theme/themes/MaterialDesign && \
+ tar xf /tmp/material-design.tar.gz -C \
+    /app/rutorrent/plugins/theme/themes/MaterialDesign --strip-components=1 && \
  mv /app/rutorrent/conf/* \
 	/defaults/rutorrent-conf/ && \
  rm -rf \
