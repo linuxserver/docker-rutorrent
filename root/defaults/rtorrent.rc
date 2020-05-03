@@ -1,27 +1,103 @@
-execute2 = {sh,-c,/usr/bin/php7 /app/rutorrent/php/initplugins.php abc &}
+execute = {sh,-c,/usr/bin/php7 /usr/share/webapps/rutorrent/php/initplugins.php abc &}
 execute.nothrow = rm,/run/php/.rtorrent.sock
 network.scgi.open_local = /run/php/.rtorrent.sock
 schedule = socket_chmod,0,0,"execute=chmod,0660,/run/php/.rtorrent.sock"
 schedule = socket_chgrp,0,0,"execute=chgrp,abc,/run/php/.rtorrent.sock"
-log.open_file = "rtorrent", /config/log/rtorrent/rtorrent.log
+
+## Instance layout (base paths)
+method.insert = cfg.basedir,  private|const|string, (cat,"/config/rtorrent/")
+method.insert = cfg.download, private|const|string, (cat,"/downloads/")
+method.insert = cfg.logs,     private|const|string, (cat,"/config/log/rtorrent/")
+method.insert = cfg.logfile,  private|const|string, (cat,(cfg.logs),"rtorrent-",(system.time),".log")
+method.insert = cfg.session,  private|const|string, (cat,(cfg.basedir),"rtorrent_sess/")
+method.insert = cfg.watch,    private|const|string, (cat,(cfg.basedir),"watch/")
+method.insert = cfg.incoming, private|const|string, (cat,(cfg.download),"incoming/")
+
+## Basic operational settings (no need to change these)
+session.path.set = (cat, (cfg.session))
+directory.default.set = (cat, (cfg.incoming))
+
+## Basic log settings (no need to change these)
+log.open_file = "rtorrent", (cfg.logfile)
 log.add_output = "info", "rtorrent"
-min_peers = 40
-max_peers = 1200
-max_uploads = 15
-download_rate = 10000
-upload_rate = 5000
-# schedule = watch_directory_1,5,5,"load.start=/downloads/watched/*.torrent"
-directory = /downloads/incoming
-session = /config/rtorrent/rtorrent_sess
-schedule = low_diskspace,5,60,close_low_diskspace=100M
+
+
+## Peer settings
+throttle.max_uploads.set = 100
+throttle.max_uploads.global.set = 100
+
+throttle.min_peers.normal.set = 20
+throttle.max_peers.normal.set = 60
+throttle.min_peers.seed.set = 30
+throttle.max_peers.seed.set = 80
+trackers.numwant.set = 80
+
+# Global upload and download rate in KiB, `0` for unlimited (`download_rate`, `upload_rate`)
+throttle.global_down.max_rate.set_kb = 10000
+throttle.global_up.max_rate.set_kb   = 5000
+
+## Limits for file handle resources, this is optimized for
+## an `ulimit` of 1024 (a common default). You MUST leave
+## a ceiling of handles reserved for rTorrent's internal needs!
+network.http.max_open.set = 50
+network.max_open_files.set = 600
+network.max_open_sockets.set = 300
+
+## Memory resource usage (increase if you have a large number of items loaded,
+## and/or the available resources to spend)
+pieces.memory.max.set = 4096M
+network.xmlrpc.size_limit.set = 4M
+
 # ip = 178.32.28.51
 bind = 0.0.0.0
-port_range = 51413-51413
-check_hash = yes
-encryption = allow_incoming,try_outgoing,enable_retry
-dht = auto
-dht_port = 6881
-# network.http.ssl_verify_peer.set=0
-# scgi_port = 0.0.0.0:5000
-encoding_list = UTF-8
-# system.umask.set = 022
+
+## Tracker-less torrent and UDP tracker support
+
+## conservative settings for 'private' trackers
+#dht.mode.set = disable
+#protocol.pex.set = 0
+#trackers.use_udp.set = 0
+
+## settings for 'public' trackers
+dht.mode.set = auto
+dht.port.set = 6881
+protocol.pex.set = 1
+trackers.use_udp.set = 1
+
+## Listening port for incoming peer traffic (fixed; you can also randomize it)
+network.port_range.set = 51413-51413
+network.port_random.set = no
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
+
+## Other operational settings (check & adapt)
+encoding.add = utf8
+network.http.dns_cache_timeout.set = 25
+schedule2 = monitor_diskspace, 5, 60, ((close_low_diskspace, 100M))
+
+## Disable hashing on completition
+#pieces.hash.on_completion.set = 0
+
+## Set umask for rtorrent directories / files
+# system.umask.set = 0027
+
+## Set default sorting if you want
+#view.sort_current = seeding, greater=d.ratio=
+
+## Set the default key layout
+#keys.layout.set = qwerty
+
+## Set the location of SSL-certifications to check
+#network.http.capath.set = "/etc/ssl/certs"
+
+## Disable peer SSL-certification check
+#network.http.ssl_verify_peer.set = 0
+
+## Disable host (tracker) SSL-certification check
+#network.http.ssl_verify_host.set = 0
+
+## Open up a TCP port for SCGI communication (i.e. the XMLRPC socket). Only use 127.0.0.1 (localhost)
+#network.scgi.open_port = 127.0.0.1:5000
+
+## Add & download straight away all torrents in watch directory
+#schedule2 = watch_start, 5, 5, ((load.start_verbose, (cat, (cfg.watch), "*.torrent")))
+
