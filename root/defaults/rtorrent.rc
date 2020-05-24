@@ -1,27 +1,44 @@
+# Required for rTorrent
 execute2 = {sh,-c,/usr/bin/php7 /app/rutorrent/php/initplugins.php abc &}
 execute.nothrow = rm,/run/php/.rtorrent.sock
 network.scgi.open_local = /run/php/.rtorrent.sock
 schedule2 = socket_chmod,0,0,"execute=chmod,0660,/run/php/.rtorrent.sock"
 schedule2 = socket_chgrp,0,0,"execute=chgrp,abc,/run/php/.rtorrent.sock"
+
+# Logging
 log.open_file = "rtorrent", /config/log/rtorrent/rtorrent.log
 log.add_output = "info", "rtorrent"
-min_peers = 40
-max_peers = 1200
-max_uploads = 15
-download_rate = 10000
-upload_rate = 5000
+
+# Throttling
+throttle.min_peers.normal.set = 40
+throttle.max_peers.normal.set = 1200
+throttle.max_uploads.global.set = 15
+# Optionally, set this per torrent:
+# throttle.max_uploads.set = 5
+
+# Directories
 # schedule2 = watch_directory_1,5,5,"load.start=/downloads/watched/*.torrent"
 directory = /downloads/incoming
 session = /config/rtorrent/rtorrent_sess
+
+# Stop torrents when your drive has <100M free disk space
 schedule = low_diskspace,5,60,close_low_diskspace=100M
-# ip = 178.32.28.51
-bind = 0.0.0.0
-port_range = 51413-51413
+
+# Networking
+network.port_range.set = 51413-51413
+network.port_random.set = no
+
+# Downloading settings
 pieces.hash.on_completion.set = yes
-encryption = allow_incoming,try_outgoing,enable_retry
-dht = auto
-dht_port = 6881
-# network.http.ssl_verify_peer.set=0
-# scgi_port = 0.0.0.0:5000
-encoding_list = UTF-8
-# system.umask.set = 022
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
+
+# DHT / PEX settings
+# set to "disable" to disable
+dht.mode.set = auto
+dht.port.set = 6881
+# set to "no" to disable
+protocol.pex.set = yes
+# set to "no" to disable
+trackers.use_udp.set = yes
+
+encoding.add = utf8
