@@ -1,4 +1,4 @@
-# Required for rTorrent
+# Required for ruTorrent
 execute2 = {sh,-c,/usr/bin/php7 /app/rutorrent/php/initplugins.php abc &}
 execute.nothrow = rm,/run/php/.rtorrent.sock
 network.scgi.open_local = /run/php/.rtorrent.sock
@@ -24,7 +24,7 @@ session = /config/rtorrent/rtorrent_sess
 # Stop torrents when your drive has <100M free disk space
 schedule = low_diskspace,5,60,close_low_diskspace=100M
 
-# Networking
+# Ports
 network.port_range.set = 51413-51413
 network.port_random.set = no
 
