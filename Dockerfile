@@ -62,9 +62,6 @@ RUN \
 	/defaults/rutorrent-conf/ && \
  rm -rf \
 	/defaults/rutorrent-conf/users && \
- echo "**** patch snoopy.inc for rss fix ****" && \
- cd /app/rutorrent/php && \
- patch < /defaults/patches/snoopy.patch && \
  echo "**** cleanup ****" && \
  apk del --purge \
 	build-dependencies && \
