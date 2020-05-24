@@ -1,8 +1,8 @@
 execute2 = {sh,-c,/usr/bin/php7 /app/rutorrent/php/initplugins.php abc &}
 execute.nothrow = rm,/run/php/.rtorrent.sock
 network.scgi.open_local = /run/php/.rtorrent.sock
-schedule = socket_chmod,0,0,"execute=chmod,0660,/run/php/.rtorrent.sock"
-schedule = socket_chgrp,0,0,"execute=chgrp,abc,/run/php/.rtorrent.sock"
+schedule2 = socket_chmod,0,0,"execute=chmod,0660,/run/php/.rtorrent.sock"
+schedule2 = socket_chgrp,0,0,"execute=chgrp,abc,/run/php/.rtorrent.sock"
 log.open_file = "rtorrent", /config/log/rtorrent/rtorrent.log
 log.add_output = "info", "rtorrent"
 min_peers = 40
@@ -10,14 +10,14 @@ max_peers = 1200
 max_uploads = 15
 download_rate = 10000
 upload_rate = 5000
-# schedule = watch_directory_1,5,5,"load.start=/downloads/watched/*.torrent"
+# schedule2 = watch_directory_1,5,5,"load.start=/downloads/watched/*.torrent"
 directory = /downloads/incoming
 session = /config/rtorrent/rtorrent_sess
 schedule = low_diskspace,5,60,close_low_diskspace=100M
 # ip = 178.32.28.51
 bind = 0.0.0.0
 port_range = 51413-51413
-check_hash = yes
+pieces.hash.on_completion.set = yes
 encryption = allow_incoming,try_outgoing,enable_retry
 dht = auto
 dht_port = 6881
