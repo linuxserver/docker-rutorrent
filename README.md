@@ -251,6 +251,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **02.06.20:** - Rebasing to alpine 3.12.
 * **29.02.20:** - Update readme for pex/dht.
 * **28.06.19:** - Rebasing to alpine 3.10.
 * **20.05.19:** - Shift to building from official releases instead of commits.
