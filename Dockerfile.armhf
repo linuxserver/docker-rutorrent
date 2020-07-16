@@ -17,7 +17,6 @@ RUN \
 	libffi-dev \
 	openssl-dev \
 	patch \
-	py3-pip \
 	python3-dev && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache --upgrade \
@@ -36,6 +35,7 @@ RUN \
 	php7-pear \
 	php7-zip \
 	procps \
+	py3-pip \
 	python3 \
 	rtorrent \
 	screen \
