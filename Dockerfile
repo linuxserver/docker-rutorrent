@@ -36,6 +36,7 @@ RUN \
 	php7-pear \
 	php7-zip \
 	procps \
+	py3-requests \
 	python3 \
 	rtorrent \
 	screen \
