@@ -138,7 +138,7 @@ py3-requests-2.23.0-r0
 py3-setuptools-47.0.0-r0
 py3-six-1.15.0-r0
 py3-urllib3-1.25.9-r0
-python3-3.8.4-r0
+python3-3.8.5-r0
 readline-8.0.4-r0
 rtorrent-0.9.8-r1
 scanelf-1.2.6-r0
