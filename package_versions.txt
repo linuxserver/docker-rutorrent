@@ -69,7 +69,7 @@ libprotoc-3.12.2-r0
 libressl3.1-libcrypto-3.1.2-r0
 libressl3.1-libssl-3.1.2-r0
 libsndfile-1.0.28-r8
-libssh-0.9.4-r0
+libssh-0.9.4-r1
 libssl1.1-1.1.1g-r0
 libstdc++-9.3.0-r2
 libtasn1-4.16.0-r1
