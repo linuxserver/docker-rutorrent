@@ -180,7 +180,7 @@ Just setting them to no will still cause the error..
 trackers.use_udp.set = yes
 protocol.pex.set = no
 ```
-
+To add plugins, create a `plugins` folder in your /config directory and add your plugin folders. Ensure proper user and group ownership is set once you add the directories.
 To add themes, create a themes folder in your /config directory and add your theme folders. Ensure proper user and group ownership is set once you add the directories.
 
 
