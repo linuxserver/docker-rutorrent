@@ -31,6 +31,8 @@ param_usage_include_env: true
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
+  THIS IMAGE IS DEPRECATED. Please migrate to [crazy-max's image](https://github.com/crazy-max/docker-rtorrent-rutorrent).
+
   Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /config/rtorrent, php in config/php and for the webui in /config/rutorrent/settings.
 
   `Settings, changed by the user through the "Settings" panel in ruTorrent, are valid until rtorrent restart. After which all settings will be set according to the rtorrent config file (/config/rtorrent/rtorrent.rc),this is a limitation of the actual apps themselves.`
@@ -63,6 +65,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "25.03.22:", desc: "Deprecated. Please migrate to [crazy-max's image](https://github.com/crazy-max/docker-rtorrent-rutorrent)." }
   - { date: "02.06.20:", desc: "Rebasing to alpine 3.12." }
   - { date: "29.02.20:", desc: "Update readme for pex/dht." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
