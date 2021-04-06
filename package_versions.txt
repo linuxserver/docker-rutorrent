@@ -11,7 +11,7 @@ bash-5.0.17-r0
 bind-libs-9.16.6-r0
 bind-tools-9.16.6-r0
 brotli-libs-1.0.9-r1
-busybox-1.31.1-r19
+busybox-1.31.1-r20
 ca-certificates-20191127-r4
 ca-certificates-bundle-20191127-r4
 coreutils-8.32-r0
@@ -148,7 +148,7 @@ sdl2-2.0.12-r1
 shadow-4.8.1-r0
 sox-14.4.2-r5
 sqlite-libs-3.32.1-r0
-ssl_client-1.31.1-r19
+ssl_client-1.31.1-r20
 tinyxml2-8.0.0-r0
 tzdata-2021a-r0
 unrar-5.9.2-r0
