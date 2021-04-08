@@ -153,6 +153,8 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 &nbsp;
 ## Application Setup
 
+THIS IMAGE IS DEPRECATED. Please migrate to [crazy-max's image](https://github.com/crazy-max/docker-rtorrent-rutorrent).
+
 Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /config/rtorrent, php in config/php and for the webui in /config/rutorrent/settings.
 
 `Settings, changed by the user through the "Settings" panel in ruTorrent, are valid until rtorrent restart. After which all settings will be set according to the rtorrent config file (/config/rtorrent/rtorrent.rc),this is a limitation of the actual apps themselves.`
@@ -255,6 +257,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **25.03.22:** - Deprecated. Please migrate to [crazy-max's image](https://github.com/crazy-max/docker-rtorrent-rutorrent).
 * **02.06.20:** - Rebasing to alpine 3.12.
 * **29.02.20:** - Update readme for pex/dht.
 * **28.06.19:** - Rebasing to alpine 3.10.
